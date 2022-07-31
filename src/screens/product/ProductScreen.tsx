@@ -201,7 +201,11 @@ const ProductDetails = (props: {
         </div>
         <div>
           <Button
-            styles={{ backgroundColor: '#D87D4A' }}
+            styles={{
+              backgroundColor: '#D87D4A',
+              width: '160px',
+              height: '48px',
+            }}
             onClick={() => addProductToCart(productCartFormat)}
           >
             <span className="text-white text-[13px] font-bold tracking-[1px]">
@@ -312,10 +316,24 @@ const LikedProduct = ({ product }) => {
       </div>
       <h3 className="text-[24px] font-bold leading-[1.71px]">{product.name}</h3>
       <Link to={`/products/${product.slug}`}>
-        <Button styles={{ backgroundColor: '#D87D4A' }}>
+        <Button
+          styles={{
+            backgroundColor: '#D87D4A',
+            width: '160px',
+            height: '48px',
+          }}
+        >
           <span className="text-white text-[13px] font-bold">SEE PRODUCT</span>
         </Button>
       </Link>
     </div>
   );
 };
+
+// const ButtonCustom = () => {
+// 	return (
+// 		// <button className='w-[160'>
+
+// 		// </button>
+// 	)
+// }

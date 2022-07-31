@@ -26,6 +26,10 @@
     @apply text-white text-xl min-w-[24px] min-h-[24px];
   }
 
+  .react-icons-payment {
+    @apply w-[64px] h-[64px];
+  }
+
   .centered-axis-x {
     position: absolute;
     left: 50%;
@@ -38,6 +42,13 @@
     left: 50%;
     top: 26%;
     transform: translate(-50%, -26%);
+  }
+
+  .centered-axis-payment {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .centered-text-x {

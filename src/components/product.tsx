@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
-import Button from './button'
+import { Link } from 'react-router-dom';
+import Button from './button';
 
 interface ProductProps {
-  slug: string
-  title: string
-  description: string
-  imagePath: string
-  isNew: boolean
+  slug: string;
+  title: string;
+  description: string;
+  imagePath: string;
+  isNew: boolean;
 }
 
 export default function Product({
@@ -34,7 +34,13 @@ export default function Product({
           {description}
         </p>
         <Link to={`/products/${slug}`}>
-          <Button styles={{ backgroundColor: '#D87D4A' }}>
+          <Button
+            styles={{
+              backgroundColor: '#D87D4A',
+              width: '160px',
+              height: '48px',
+            }}
+          >
             <span className="text-white text-[13px] font-bold">
               SEE PRODUCT
             </span>
@@ -42,5 +48,5 @@ export default function Product({
         </Link>
       </div>
     </div>
-  )
+  );
 }

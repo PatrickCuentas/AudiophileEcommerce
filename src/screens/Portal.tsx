@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
 // React-portal
 import { PortalWithState } from 'react-portal';
@@ -28,29 +28,18 @@ interface CartItemProps {
 }
 
 export default function Portal({ animation }) {
-  const mainEl = document.getElementById('main');
-  const footerEl = document.getElementById('footer');
+  const mainEl = document.querySelector('main');
+  const footerEl = document.querySelector('footer');
 
   const addBlur = () => {
-    mainEl
-      ? mainEl?.classList.add('blur-cart')
-      : document.querySelector('main')?.classList.add('blur-cart');
-
-    footerEl
-      ? footerEl?.classList.add('blur-cart')
-      : document.querySelector('footer')?.classList.add('blur-cart');
-
+    mainEl?.classList.add('blur-cart');
+    footerEl?.classList.add('blur-cart');
     window.scrollTo(0, 0);
   };
 
   const removeBlur = () => {
-    mainEl
-      ? mainEl?.classList.remove('blur-cart')
-      : document.querySelector('main')?.classList.remove('blur-cart');
-
-    footerEl
-      ? footerEl?.classList.remove('blur-cart')
-      : document.querySelector('footer')?.classList.remove('blur-cart');
+    mainEl?.classList.remove('blur-cart');
+    footerEl?.classList.remove('blur-cart');
   };
 
   return (
@@ -132,7 +121,11 @@ function Cart(props: { closePortal: () => void }) {
             className={`${!cartProducts.length && 'pointer-events-none'}`}
           >
             <Button
-              styles={{ backgroundColor: '#D87D4A', width: '100%' }}
+              styles={{
+                backgroundColor: '#D87D4A',
+                width: '100%',
+                height: '48px',
+              }}
               onClick={closePortal}
             >
               <span className="text-white text-[13px] font-bold">CHECKOUT</span>

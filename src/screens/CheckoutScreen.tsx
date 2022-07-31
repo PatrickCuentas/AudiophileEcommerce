@@ -1,6 +1,5 @@
 import { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router';
-import Button from '../components/button';
 
 // Context
 import { CartContext } from '../context/CartContext';
@@ -11,6 +10,7 @@ import useRadioButtons from '../hooks/useRadioButtons';
 // Utils
 import { getShortName } from '../utils/fetchProducts';
 import { formatPrice } from '../utils/priceProducts';
+import PaymentPortal from './PaymentPortal';
 
 interface CartItemProps {
   id: number | string;
@@ -27,6 +27,10 @@ export default function CheckoutScreen() {
   const [paymentValue, paymentInputProps] = useRadioButtons('payment', 'money');
 
   useEffect(() => {
+    if (cartProducts.length <= 0) {
+      navigate('/');
+    }
+
     document.body.style.background = '#F2F2F2';
     return () => {
       document.body.style.background = '#ffffff';
@@ -169,7 +173,7 @@ function Summary(props: { products: CartItemProps[]; totalPrice: number }) {
       <h2 className="font-bold text-[18px] tracking-[1.29px] ">SUMMARY</h2>
       <div
         id="products"
-        className="flex flex-col gap-[24px] overflow-scroll"
+        className="flex flex-col gap-[24px]"
         // h-[240px]
       >
         {Array.isArray(products) &&
@@ -193,9 +197,8 @@ function Summary(props: { products: CartItemProps[]; totalPrice: number }) {
           $ {GRAND_TOTAL}
         </Label>
       </div>
-      <Button styles={{ backgroundColor: '#D87D4A', width: '100%' }}>
-        <span className="text-white text-[13px] font-bold">CONTINUE & PAY</span>
-      </Button>
+
+      {document && <PaymentPortal />}
     </div>
   );
 }
@@ -218,7 +221,7 @@ function CartItem(props: { product: CartItemProps }) {
   const priceFormated = formatPrice(product.price);
 
   return (
-    <div className="flex items-center justify-between gap-[16px]">
+    <div className="flex items-start justify-between gap-[16px]">
       <div className="flex items-center gap-[16px]">
         <div>
           <img

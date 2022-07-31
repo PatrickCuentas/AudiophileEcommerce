@@ -1,44 +1,48 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import { NavbarContext } from '../context/NavbarContext.jsx'
-import { IconContext } from 'react-icons'
-import { IoIosArrowForward } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { NavbarContext } from '../context/NavbarContext.jsx';
+import { IconContext } from 'react-icons';
+import { IoIosArrowForward } from 'react-icons/io';
+import { Link } from 'react-router-dom';
+
+import headphonesXx99MarkOneRemoveBgMobile from '../../assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview-removebg.png';
+import speakerZx9RemoveBgMobile from '../../assets/product-zx9-speaker/mobile/image-category-page-preview-removebg.png';
+import earphonesYx1RemoveBgMobile from '../../assets/product-yx1-earphones/mobile/image-category-page-preview-removebg.png';
 
 const categories = [
   {
     id: 1,
     name: 'Headphones',
-    path: '../../assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview-removebg.png',
+    path: headphonesXx99MarkOneRemoveBgMobile,
   },
   {
     id: 2,
     name: 'Speakers',
-    path: '../../assets/product-zx9-speaker/mobile/image-category-page-preview-removebg.png',
+    path: speakerZx9RemoveBgMobile,
   },
   {
     id: 3,
     name: 'Earphones',
-    path: '../../assets/product-yx1-earphones/mobile/image-category-page-preview-removebg.png',
+    path: earphonesYx1RemoveBgMobile,
   },
-]
+];
 
 interface Category {
-  id?: number
-  name: string
-  path: string
-  position?: number
-  onClick?: () => void
+  id?: number;
+  name: string;
+  path: string;
+  position?: number;
+  onClick?: () => void;
 }
 
 interface Categories {
-  isNavbar: boolean
+  isNavbar: boolean;
 }
 
 export default function Categories({ isNavbar }: Categories) {
   const [isNavbarOpen, setIsNavbarOpen, toggleNavbar] =
-    useContext(NavbarContext)
-  const paddingStyles = !isNavbar && 'pt-[90px] pb-[120px]'
+    useContext(NavbarContext);
+  const paddingStyles = !isNavbar && 'pt-[90px] pb-[120px]';
 
   return (
     <div className={`${paddingStyles}`}>
@@ -52,11 +56,11 @@ export default function Categories({ isNavbar }: Categories) {
         />
       ))}
     </div>
-  )
+  );
 }
 
 function Category({ name, path, position, onClick }: Category) {
-  const marginTop = position === 0 ? 'mt-[0px]' : 'mt-[60px]'
+  const marginTop = position === 0 ? 'mt-[0px]' : 'mt-[60px]';
 
   const divImage = {
     backgroundImage: `url("${path}")`,
@@ -65,7 +69,7 @@ function Category({ name, path, position, onClick }: Category) {
     backgroundRepeat: 'no-repeat',
     width: '120px',
     height: '100%',
-  }
+  };
 
   return (
     <div className={`relative text-center ${marginTop}`}>
@@ -87,5 +91,5 @@ function Category({ name, path, position, onClick }: Category) {
         </Link>
       </div>
     </div>
-  )
+  );
 }

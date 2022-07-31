@@ -1,4 +1,8 @@
-import Button from './button'
+import { Link } from 'react-router-dom';
+import Button from './button';
+import speakerZx9 from '../../assets/home/mobile/image-speaker-zx9.png';
+import speakerZx7 from '../../assets/home/mobile/image-speaker-zx7.jpg';
+import earphonesYx1 from '../../assets/home/mobile/image-earphones-yx1.jpg';
 
 export default function Products() {
   return (
@@ -12,23 +16,18 @@ export default function Products() {
         <EarphonesYX1 />
       </div>
     </div>
-  )
+  );
 }
 
 function SpeakerZX9() {
-  const backgroundImageDiv = {
-    backgroundImage: `url("../../assets/home/mobile/image-speaker-zx9.png")`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    width: '170px',
-    height: '200px',
-  }
-
   return (
     <div className="bg-[#d87d4a] rounded-[8px] px-[24px] py-[55px]">
       <div className="flex flex-col items-center">
-        <div style={backgroundImageDiv}></div>
+        <img
+          src={speakerZx9}
+          alt="Speaker ZX9"
+          className="object-cover w-[170px] h-[200px]"
+        />
         <h2 className="text-[36px] text-white max-w-[10ch] mt-[32px] leading-10">
           ZX9 SPEAKER
         </h2>
@@ -36,21 +35,27 @@ function SpeakerZX9() {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <Button styles={{ backgroundColor: '#000' }}>
-          <span className="text-white text-[13px] font-bold">SEE PRODUCT</span>
-        </Button>
+        <Link to="/products/zx9-speaker">
+          <Button
+            styles={{ backgroundColor: '#000', width: '160px', height: '48px' }}
+          >
+            <span className="text-white text-[13px] font-bold">
+              SEE PRODUCT
+            </span>
+          </Button>
+        </Link>
       </div>
     </div>
-  )
+  );
 }
 
 function SpeakerZX7() {
   const backgroundImageDiv = {
-    backgroundImage: `url("../../assets/home/mobile/image-speaker-zx7.jpg")`,
+    backgroundImage: `url(${speakerZx7})`,
     backgroundSize: 'cover',
     backgroundPosition: 'end',
     backgroundRepeat: 'no-repeat',
-  }
+  };
 
   return (
     <div
@@ -60,25 +65,27 @@ function SpeakerZX7() {
       <div className="flex items-center h-full">
         <div className="text-start">
           <h2 className="text-[28px] text-black mb-[32px]">ZX7 SPEAKER</h2>
-          <button className="w-[160px] h-[48px] bg-transparent border-black border-[1px]">
-            <span className="text-[13px] font-bold">SEE PRODUCT</span>
-          </button>
+          <Link to="/products/zx7-speaker">
+            <button className="w-[160px] h-[48px] bg-transparent border-black border-[1px]">
+              <span className="text-[13px] font-bold">SEE PRODUCT</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function EarphonesYX1() {
   const backgroundImageDiv = {
-    backgroundImage: `url("../../assets/home/mobile/image-earphones-yx1.jpg")`,
+    backgroundImage: `url(${earphonesYx1})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     minWidth: '100%',
     height: '200px',
     borderRadius: '8px',
-  }
+  };
 
   return (
     <div>
@@ -87,12 +94,14 @@ function EarphonesYX1() {
         <div className="flex items-center h-full">
           <div className="text-start">
             <h2 className="text-[28px] text-black mb-[32px]">YX1 EARPHONES</h2>
-            <button className="w-[160px] h-[48px] bg-transparent border-black border-[1px]">
-              <span className="text-[13px] font-bold">SEE PRODUCT</span>
-            </button>
+            <Link to="/products/yx1-earphones">
+              <button className="w-[160px] h-[48px] bg-transparent border-black border-[1px]">
+                <span className="text-[13px] font-bold">SEE PRODUCT</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

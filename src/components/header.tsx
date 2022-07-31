@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom'
-import Button from './button'
+import { Link } from 'react-router-dom';
+import Button from './button';
+
+import ImageHeaderMobile from '../../assets/home/mobile/image-header.jpg';
 
 export default function Header() {
   return (
@@ -8,7 +10,13 @@ export default function Header() {
       <div className="centered-axis-x">
         <Text />
         <Link to="/products/xx99-mark-two-headphones">
-          <Button styles={{ backgroundColor: '#D87D4A' }}>
+          <Button
+            styles={{
+              backgroundColor: '#D87D4A',
+              width: '160px',
+              height: '48px',
+            }}
+          >
             <span className="text-white text-[13px] font-bold">
               SEE PRODUCT
             </span>
@@ -16,11 +24,11 @@ export default function Header() {
         </Link>
       </div>
     </header>
-  )
+  );
 }
 
 function Image() {
-  return <img src="../../assets/home/mobile/image-header.jpg" alt="" />
+  return <img src={ImageHeaderMobile} alt="" />;
 }
 
 function Text() {
@@ -37,5 +45,5 @@ function Text() {
         for the passionate music enthusiast.
       </p>
     </>
-  )
+  );
 }

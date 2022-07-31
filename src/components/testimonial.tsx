@@ -1,13 +1,15 @@
+import bestGearSharedMobile from '../../assets/shared/mobile/image-best-gear.jpg';
+
 export default function Testimonial() {
   const backgroundImageDiv = {
-    backgroundImage: `url("../../assets/shared/mobile/image-best-gear.jpg")`,
+    backgroundImage: `url(${bestGearSharedMobile})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     minWidth: '100%',
     height: '300px',
     borderRadius: '8px',
-  }
+  };
 
   return (
     <div className="text-center">
@@ -24,5 +26,5 @@ export default function Testimonial() {
         to buy your portable audio equipment.
       </p>
     </div>
-  )
+  );
 }
