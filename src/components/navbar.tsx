@@ -31,7 +31,7 @@ export default function Navbar() {
   const border = isNavbarOpen ? '1px' : '0px';
 
   return (
-    <nav className="fixed top-0 w-full z-10">
+    <nav className="absolute top-0 w-full z-10">
       <div className=" bg-[#191919] py-[32px] px-[24px] border-b-[1px] border-b-[rgba(151,151,151,0.1)]">
         <div className="flex flex-wrap justify-between items-center">
           <Hamburger
