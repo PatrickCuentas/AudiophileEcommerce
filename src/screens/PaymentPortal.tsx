@@ -43,6 +43,7 @@ export default function PaymentPortal() {
               styles={{
                 backgroundColor: '#D87D4A',
                 width: '100%',
+                height: '48px',
               }}
               onClick={openPortal}
             >
