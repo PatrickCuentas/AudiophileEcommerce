@@ -112,7 +112,7 @@ function Cart(props: { closePortal: () => void }) {
         {/* PRODUCTS */}
         <div
           id="products"
-          className="flex flex-col gap-[24px] overflow-scroll h-[240px]"
+          className="flex flex-col gap-[24px] overflow-x-hidden overflow-y-scroll h-[240px]"
         >
           {Array.isArray(cartProducts) &&
             cartProducts.map((product: CartItemProps) => (
