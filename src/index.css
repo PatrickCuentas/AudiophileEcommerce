@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Manrope', sans-serif;
+  }
+
+  input[type='radio'] {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+  .react-icons {
+    @apply text-white text-xl;
+  }
+
+  .react-icons-footer {
+    @apply text-white text-xl min-w-[24px] min-h-[24px];
+  }
+
+  .centered-axis-x {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .centered-axis-cart {
+    position: absolute;
+    left: 50%;
+    top: 26%;
+    transform: translate(-50%, -26%);
+  }
+
+  .centered-text-x {
+    width: 35ch;
+  }
+
+  .remove-bg {
+    filter: brightness(1.1);
+    mix-blend-mode: ;
+  }
+
+  .blur-cart {
+    filter: blur(3px);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+  }
+}
