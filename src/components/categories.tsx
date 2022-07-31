@@ -72,8 +72,8 @@ function Category({ name, path, position, onClick }: Category) {
 
   return (
     <div className={`relative text-center ${marginTop}`}>
-      <div className="h-[165px] bg-bg_primary rounded-[8px]">
-        <div className="h-full absolute left-[37%] top-[-60px]">
+      <div className="flex flex-col items-center h-[165px] bg-bg_primary rounded-[8px]">
+        <div className="h-full absolute top-[-60px]">
           <div style={divImage}></div>
         </div>
         <div className="h-[88px]"></div>

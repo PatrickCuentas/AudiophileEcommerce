@@ -7,6 +7,7 @@ import { getShortName } from '../utils/fetchProducts';
 import { formatPrice } from '../utils/priceProducts';
 import { CartContext } from '../context/CartContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 interface CartItemProps {
   id: number | string;
@@ -98,17 +99,19 @@ function Modal() {
             <p className="font-bold text-[18px] text-white">$ {GRAND_TOTAL}</p>
           </div>
         </div>
-        <Button
-          styles={{
-            backgroundColor: '#D87D4A',
-            width: '100%',
-            padding: '15px 0',
-          }}
-        >
-          <span className="text-white text-[13px] font-bold tracking-[1px]">
-            CHECKOUT
-          </span>
-        </Button>
+        <Link to="/">
+          <Button
+            styles={{
+              backgroundColor: '#D87D4A',
+              width: '100%',
+              padding: '15px 0',
+            }}
+          >
+            <span className="text-white text-[13px] font-bold tracking-[1px]">
+              GO HOME
+            </span>
+          </Button>
+        </Link>
       </div>
     </div>
   );
