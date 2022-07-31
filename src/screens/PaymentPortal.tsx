@@ -52,7 +52,7 @@ export default function PaymentPortal() {
                 CONTINUE & PAY
               </span>
             </Button>
-            {isOpen && portal(<Modal />)}
+            {isOpen && portal(<Modal removeBlur={removeBlur} />)}
           </>
         );
       }}
@@ -60,7 +60,7 @@ export default function PaymentPortal() {
   );
 }
 
-function Modal() {
+function Modal({ removeBlur }) {
   const { cartProducts, totalPrice } = useContext(CartContext);
   const firstProduct = cartProducts[0];
   const SHIPPING_PRICE = 50;
@@ -99,7 +99,7 @@ function Modal() {
             <p className="font-bold text-[18px] text-white">$ {GRAND_TOTAL}</p>
           </div>
         </div>
-        <Link to="/">
+        <Link to="/" onClick={removeBlur}>
           <Button
             styles={{
               backgroundColor: '#D87D4A',
