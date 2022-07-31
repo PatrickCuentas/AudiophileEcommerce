@@ -40,8 +40,7 @@ interface Categories {
 }
 
 export default function Categories({ isNavbar }: Categories) {
-  const [isNavbarOpen, setIsNavbarOpen, toggleNavbar] =
-    useContext(NavbarContext);
+  const [toggleNavbar] = useContext(NavbarContext);
   const paddingStyles = !isNavbar && 'pt-[90px] pb-[120px]';
 
   return (
