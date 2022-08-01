@@ -78,16 +78,17 @@ function Category({ name, path, position, onClick }: Category) {
         </div>
         <div className="h-[88px]"></div>
         <p className="text-black mb-[8px]">{name.toUpperCase()}</p>
-        <Link
-          to={`/category/${name.toLocaleLowerCase()}`}
-          className="flex items-center justify-center flex-wrap gap-1"
-          onClick={onClick}
-        >
-          <span className="text-gray-500">SHOP</span>
-          <IconContext.Provider value={{ style: { color: 'orange' } }}>
-            <IoIosArrowForward className="text-gray-500" />
-          </IconContext.Provider>
-        </Link>
+        <div onClick={onClick}>
+          <Link
+            to={`/category/${name.toLocaleLowerCase()}`}
+            className="flex items-center justify-center flex-wrap gap-1"
+          >
+            <span className="text-gray-500">SHOP</span>
+            <IconContext.Provider value={{ style: { color: 'orange' } }}>
+              <IoIosArrowForward className="text-gray-500" />
+            </IconContext.Provider>
+          </Link>
+        </div>
       </div>
     </div>
   );
