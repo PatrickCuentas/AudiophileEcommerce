@@ -1,36 +1,31 @@
-import CheckCircle from '../../assets/CheckCircle.svg';
+import { Link } from "react-router-dom";
 
-// React-portal
-import { PortalWithState } from 'react-portal';
-import Button from '../components/button';
-import { getShortName } from '../utils/fetchProducts';
-import { formatPrice } from '../utils/priceProducts';
-import { CartContext } from '../context/CartContext';
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import Button from "../components/button";
 
-interface CartItemProps {
-  id: number | string;
-  name: string;
-  slug: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { CartItemProps } from "../interfaces/cart";
+
+import CheckCircle from "../../assets/CheckCircle.svg";
+
+import { PortalWithState } from "react-portal";
+
+import { getShortName } from "../utils/fetchProducts";
+import { formatPrice } from "../utils/priceProducts";
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
 export default function PaymentPortal() {
-  const mainEl = document.querySelector('main');
-  const footerEl = document.querySelector('footer');
+  const mainEl = document.querySelector("main");
+  const footerEl = document.querySelector("footer");
 
   const addBlur = () => {
-    mainEl?.classList.add('blur-cart');
-    footerEl?.classList.add('blur-cart');
+    mainEl?.classList.add("blur-cart");
+    footerEl?.classList.add("blur-cart");
     window.scrollTo(0, 0);
   };
 
   const removeBlur = () => {
-    mainEl?.classList.remove('blur-cart');
-    footerEl?.classList.remove('blur-cart');
+    mainEl?.classList.remove("blur-cart");
+    footerEl?.classList.remove("blur-cart");
   };
 
   return (
@@ -42,13 +37,13 @@ export default function PaymentPortal() {
           <>
             <Button
               styles={{
-                backgroundColor: '#D87D4A',
-                width: '100%',
-                height: '48px',
+                backgroundColor: "#D87D4A",
+                width: "100%",
+                height: "48px",
               }}
               onClick={openPortal}
             >
-              <span className="text-white text-[13px] font-bold">
+              <span className="text-[13px] font-bold text-white">
                 CONTINUE & PAY
               </span>
             </Button>
@@ -70,44 +65,44 @@ function Modal({ removeBlur }) {
 
   return (
     <div className="centered-axis-payment">
-      <div className="bg-white p-[32px] min-w-[330px] rounded-[8px] shadow-2xl flex flex-col gap-[24px]">
+      <div className="flex min-w-[330px] flex-col gap-[24px] rounded-[8px] bg-white p-[32px] shadow-2xl md:min-w-[540px] md:p-[48px]">
         <img
           src={CheckCircle}
           alt="check circle icon"
           className="react-icons-payment"
         />
         <div>
-          <h3 className="font-bold text-[24px] tracking-[0.86px]">
+          <h3 className="text-[24px] font-bold tracking-[0.86px] md:text-[32px]">
             THANK YOU FOR YOUR ORDER
           </h3>
-          <p className="font-medium text-[15px] mt-[16px] text-[rgba(0,0,0,0.5)]">
+          <p className="mt-[16px] text-[15px] font-medium text-[rgba(0,0,0,0.5)]">
             You will receive an email confirmation shortly.
           </p>
         </div>
-        <div>
-          <div className="pl-[35px] pr-[24px] py-[24px] bg-[#F1F1F1] rounded-[8px] h-[140px] flex flex-col gap-[12px] text-center">
+        <div className="md:flex">
+          <div className="flex h-[140px] flex-col items-center justify-center gap-[12px] rounded-[8px] bg-[#F1F1F1] pl-[35px] pr-[24px] pt-[24px] text-center md:flex-[1.1] md:pl-[24px]">
             <CartItem product={firstProduct} />
-            <hr className="h-[2px] w-full bg-[rgba(0,0,0,0.08)] mt-[12px]" />
-            <p className="font-bold text-[12px] tracking-[-0.21px] text-[rgba(0,0,0,0.5)]">
+            <hr className="mt-[12px] h-[2px] w-full bg-[rgba(0,0,0,0.08)] " />
+            <p className="text-[12px] font-bold tracking-[-0.21px] text-[rgba(0,0,0,0.5)]">
               and {cartProducts.length - 1} other item(s)
             </p>
           </div>
-          <div className="bg-[#000000] h-[90px] rounded-b-[8px] pl-[24px] pt-[15px] pb-[19px]">
-            <p className="font-medium text-[15px] text-[#7f7f7f] mb-[8px]">
+          <div className="h-[90px] rounded-b-[8px] bg-[#000000] pl-[24px] pt-[15px] pb-[19px] md:flex md:h-[140px] md:flex-1 md:flex-col md:items-start md:justify-center md:pt-0">
+            <p className="mb-[8px] text-[15px] font-medium text-[#7f7f7f]">
               GRAND TOTAL
             </p>
-            <p className="font-bold text-[18px] text-white">$ {GRAND_TOTAL}</p>
+            <p className="text-[18px] font-bold text-white">$ {GRAND_TOTAL}</p>
           </div>
         </div>
         <Link to="/" onClick={removeBlur}>
           <Button
             styles={{
-              backgroundColor: '#D87D4A',
-              width: '100%',
-              padding: '15px 0',
+              backgroundColor: "#D87D4A",
+              width: "100%",
+              padding: "15px 0",
             }}
           >
-            <span className="text-white text-[13px] font-bold tracking-[1px]">
+            <span className="text-[13px] font-bold tracking-[1px] text-white">
               GO HOME
             </span>
           </Button>
@@ -120,7 +115,7 @@ function Modal({ removeBlur }) {
 function CartItem(props: { product: CartItemProps }) {
   const product: CartItemProps = props.product;
 
-  const shortName = getShortName(product.slug);
+  const shortName = getShortName(product.slug || "");
   const priceFormated = formatPrice(product.price);
 
   return (
@@ -130,7 +125,7 @@ function CartItem(props: { product: CartItemProps }) {
           <img
             src={product?.image}
             alt="no image"
-            className="rounded-[8px] w-[40px] h-[44px] min-w-full"
+            className="h-[44px] w-[40px] min-w-full rounded-[8px]"
           />
         </div>
         <div className="min-w-[75px]">
@@ -140,7 +135,7 @@ function CartItem(props: { product: CartItemProps }) {
           </p>
         </div>
       </div>
-      <p className="font-bold text-[15px] text-[rgba(0,0,0,0.5)]">
+      <p className="text-[15px] font-bold text-[rgba(0,0,0,0.5)]">
         x{product?.quantity}
       </p>
     </div>

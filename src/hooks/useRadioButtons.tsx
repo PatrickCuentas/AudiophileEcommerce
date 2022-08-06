@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function useRadioButtons(name: string, defaultValue: string) {
   const [value, setState] = useState<any>(defaultValue);
@@ -9,7 +9,7 @@ export default function useRadioButtons(name: string, defaultValue: string) {
 
   const inputProps = {
     name,
-    type: 'radio',
+    type: "radio",
     onChange: handleChange,
   };
 

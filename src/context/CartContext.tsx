@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 interface CartItemProps {
   id: number | string;
@@ -50,7 +50,7 @@ export const CartProvider = ({ children }) => {
     if (productIndex === -1) return;
 
     switch (operation) {
-      case '+': {
+      case "+": {
         if (product.quantity >= 10) break;
 
         newCartProducts[productIndex] = {
@@ -59,7 +59,7 @@ export const CartProvider = ({ children }) => {
         };
         break;
       }
-      case '-': {
+      case "-": {
         if (product.quantity <= 1) {
           newCartProducts = removeProductFromCart(product);
         } else {

@@ -1,22 +1,22 @@
-import HomeScreen from '../screens/HomeScreen.tsx';
-import NotFoundScreen from '../screens/NotFoundScreen.tsx';
-import LayoutScreen from '../screens/LayoutScreen.tsx';
+import HomeScreen from "../screens/HomeScreen.tsx";
+import NotFoundScreen from "../screens/NotFoundScreen.tsx";
+import LayoutScreen from "../screens/LayoutScreen.tsx";
 
 // CategoryScreen
-import CategoryScreen from '../screens/category/CategoryScreen';
+import CategoryScreen from "../screens/category/CategoryScreen";
 
 // CheckoutScreen
-import CheckoutScreen from '../screens/CheckoutScreen';
+import CheckoutScreen from "../screens/CheckoutScreen";
 
 // Categories
-import EarhphonesScreen from '../screens/category/EarphonesScreen';
-import SpeakersScreen from '../screens/category/SpeakersScreen';
-import HeadphonesScreen from '../screens/category/HeadphonesScreen';
+import EarhphonesScreen from "../screens/category/EarphonesScreen";
+import SpeakersScreen from "../screens/category/SpeakersScreen";
+import HeadphonesScreen from "../screens/category/HeadphonesScreen";
 
 // Products
-import ProductScreen from '../screens/product/ProductScreen.tsx';
+import ProductScreen from "../screens/product/ProductScreen.tsx";
 
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from "react-router";
 
 export default function AppRouter() {
   return (

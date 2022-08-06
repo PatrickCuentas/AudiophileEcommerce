@@ -1,45 +1,32 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-// React-portal
-import { PortalWithState } from 'react-portal';
+import Button from "../components/button";
+import { PortalWithState } from "react-portal";
 
-// Components
-import Button from '../components/button';
+import { CartItemProps } from "../interfaces/cart";
 
-// Context
-import { IconContext } from 'react-icons';
-import { CartContext } from '../context/CartContext';
+import { IconContext } from "react-icons";
+import { CartContext } from "../context/CartContext";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
-// Icons
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-
-// Utils
-import { getShortName } from '../utils/fetchProducts';
-import { formatPrice } from '../utils/priceProducts';
-import { Link } from 'react-router-dom';
-
-interface CartItemProps {
-  id: number | string;
-  name: string;
-  slug: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { getShortName } from "../utils/fetchProducts";
+import { formatPrice } from "../utils/priceProducts";
+import { getDeviceType } from "../utils/windowSize";
 
 export default function Portal({ animation }) {
-  const mainEl = document.querySelector('main');
-  const footerEl = document.querySelector('footer');
+  const mainEl = document.querySelector("main");
+  const footerEl = document.querySelector("footer");
 
   const addBlur = () => {
-    mainEl?.classList.add('blur-cart');
-    footerEl?.classList.add('blur-cart');
+    mainEl?.classList.add("blur-cart");
+    footerEl?.classList.add("blur-cart");
     window.scrollTo(0, 0);
   };
 
   const removeBlur = () => {
-    mainEl?.classList.remove('blur-cart');
-    footerEl?.classList.remove('blur-cart');
+    mainEl?.classList.remove("blur-cart");
+    footerEl?.classList.remove("blur-cart");
   };
 
   return (
@@ -49,13 +36,13 @@ export default function Portal({ animation }) {
 
         return (
           <>
-            <IconContext.Provider value={{ className: 'react-icons' }}>
-              <div onClick={openPortal} className="cursor-pointer relative">
+            <IconContext.Provider value={{ className: "react-icons" }}>
+              <div onClick={openPortal} className="relative cursor-pointer">
                 <AiOutlineShoppingCart />
                 {animation && (
                   <span className="absolute -right-[5px] -top-[5px] flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D87D4A] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#E45B0E]"></span>
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D87D4A] opacity-75"></span>
+                    <span className="relative inline-flex h-3 w-3 rounded-full bg-[#E45B0E]"></span>
                   </span>
                 )}
               </div>
@@ -70,6 +57,7 @@ export default function Portal({ animation }) {
 
 function Cart(props: { closePortal: () => void }) {
   const { closePortal } = props;
+  const { type } = getDeviceType();
   const {
     cartProducts,
     setCartProducts,
@@ -85,8 +73,12 @@ function Cart(props: { closePortal: () => void }) {
   }, [cartProducts, setCartProducts]);
 
   return (
-    <div className="centered-axis-cart">
-      <div className="bg-white px-[28px] py-[32px] min-w-[330px] h-[490px] rounded-[8px] shadow-2xl flex flex-col gap-[32px]">
+    <div
+      className={`${
+        type === "mobile" ? "centered-axis-cart" : "right-axis-cart"
+      }`}
+    >
+      <div className="flex h-[490px] min-w-[330px] flex-col gap-[32px] rounded-[8px] bg-white px-[28px] py-[32px] shadow-2xl md:min-w-[380px]">
         {/* OPTIONS */}
         <div className="flex justify-between ">
           <h3 className="text-[18px] font-bold tracking-[1.29px]">
@@ -101,7 +93,7 @@ function Cart(props: { closePortal: () => void }) {
         {/* PRODUCTS */}
         <div
           id="products"
-          className="flex flex-col gap-[24px] overflow-x-hidden overflow-y-scroll h-[240px]"
+          className="flex h-[240px] flex-col gap-[24px] overflow-x-hidden overflow-y-scroll"
         >
           {Array.isArray(cartProducts) &&
             cartProducts.map((product: CartItemProps) => (
@@ -110,7 +102,7 @@ function Cart(props: { closePortal: () => void }) {
         </div>
         {/* CALCULATED PRODUCTS */}
         <div className="min-h-[100px]">
-          <div className="flex justify-between mb-[24px]">
+          <div className="mb-[24px] flex justify-between">
             <p className="text-[15px] font-medium text-[rgba(0,0,0,0.5)]">
               TOTAL
             </p>
@@ -118,17 +110,17 @@ function Cart(props: { closePortal: () => void }) {
           </div>
           <Link
             to="/checkout"
-            className={`${!cartProducts.length && 'pointer-events-none'}`}
+            className={`${!cartProducts.length && "pointer-events-none"}`}
           >
             <Button
               styles={{
-                backgroundColor: '#D87D4A',
-                width: '100%',
-                height: '48px',
+                backgroundColor: "#D87D4A",
+                width: "100%",
+                height: "48px",
               }}
               onClick={closePortal}
             >
-              <span className="text-white text-[13px] font-bold">CHECKOUT</span>
+              <span className="text-[13px] font-bold text-white">CHECKOUT</span>
             </Button>
           </Link>
         </div>
@@ -141,7 +133,7 @@ function CartItem(props: { product: CartItemProps }) {
   const product: CartItemProps = props.product;
   const { changeCartItemQuantity } = useContext(CartContext);
 
-  const shortName = getShortName(product.slug);
+  const shortName = getShortName(product.slug || "");
   const priceFormated = formatPrice(product.price);
 
   return (
@@ -150,7 +142,7 @@ function CartItem(props: { product: CartItemProps }) {
         <img
           src={product?.image}
           alt="no image"
-          className="rounded-[8px] w-[64px] h-[64px]"
+          className="h-[64px] w-[64px] rounded-[8px]"
         />
       </div>
       <div className="min-w-[75px]">
@@ -162,7 +154,7 @@ function CartItem(props: { product: CartItemProps }) {
       <div className="inline-flex items-center bg-[#F1F1F1]">
         <button
           className="py-[6px] px-[12px]"
-          onClick={() => changeCartItemQuantity(product, '-')}
+          onClick={() => changeCartItemQuantity(product, "-")}
         >
           <span className="text-[13px] font-bold tracking-[1px] text-[rgba(0,0,0,0.25)]">
             -
@@ -175,7 +167,7 @@ function CartItem(props: { product: CartItemProps }) {
         </div>
         <button
           className="py-[6px] px-[12px]"
-          onClick={() => changeCartItemQuantity(product, '+')}
+          onClick={() => changeCartItemQuantity(product, "+")}
         >
           <span className="text-[13px] font-bold tracking-[1px] text-[rgba(0,0,0,0.25)]">
             +

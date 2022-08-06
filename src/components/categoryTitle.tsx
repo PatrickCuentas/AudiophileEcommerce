@@ -1,7 +1,7 @@
-export default function CategoryTitle({ title }) {
+export default function CategoryTitle({ title }: { title: string }) {
   return (
-    <div className="h-[102px] flex justify-center items-center bg-black">
-      <p className="text-white font-bold text-[28px] tracking-[2px]">{title}</p>
+    <div className="flex h-[102px] items-center justify-center bg-black">
+      <p className="text-[28px] font-bold tracking-[2px] text-white">{title}</p>
     </div>
-  )
+  );
 }

@@ -1,12 +1,13 @@
-interface ButtonProps {
-  styles: React.CSSProperties;
-  onClick?: () => void;
-  children: React.ReactNode;
-}
+import { ButtonProps } from "../interfaces/button";
 
-export default function Button({ styles, onClick, children }: ButtonProps) {
+export default function Button({
+  styles,
+  className,
+  onClick,
+  children,
+}: ButtonProps) {
   return (
-    <button style={styles} onClick={onClick}>
+    <button style={styles} onClick={onClick} className={className}>
       {children}
     </button>
   );
