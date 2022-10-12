@@ -1,26 +1,26 @@
-import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import Button from "../../components/button";
-import Categories from "../../components/categories";
-import Testimonial from "../../components/testimonial";
+import Button from '../../components/button';
+import Categories from '../../components/categories';
+import Testimonial from '../../components/testimonial';
 
-import { DeviceType } from "../../interfaces/device";
-import { ProductFullProps } from "../../interfaces/product";
-import { CartItemProps } from "../../interfaces/cart";
-import { ItemBoxProps } from "../../interfaces/item";
-import { OthersProps } from "../../interfaces/others";
+import { DeviceType } from '../../interfaces/device';
+import { ProductFullProps } from '../../interfaces/product';
+import { CartItemProps } from '../../interfaces/cart';
+import { ItemBoxProps } from '../../interfaces/item';
+import { OthersProps } from '../../interfaces/others';
 
-import { CartContext } from "../../context/CartContext.jsx";
+import { CartContext } from '../../context/CartContext.jsx';
 
 import {
   getCartImageBySlugName,
   getProductImageBySlugName,
   getProductsBySlug,
-} from "../../utils/fetchProducts";
-import { getDeviceType } from "../../utils/windowSize";
-import { formatPrice } from "../../utils/priceProducts";
+} from '../../utils/fetchProducts';
+import { getDeviceType } from '../../utils/windowSize';
+import { formatPrice } from '../../utils/priceProducts';
 
 const STOCK = 10;
 const INITIAL_QUANTITY = 1;
@@ -55,8 +55,8 @@ export default function ProductScreen() {
   console.log(product);
 
   return (
-    <div>
-      <div className="px-[24px] pt-[16px] pb-[120px] md:px-[39px] md:pt-[33px]">
+    <>
+      <div className="px-[24px] pt-[16px] md:px-[39px] md:pt-[33px]">
         <div className="mb-[88px] flex flex-col flex-wrap gap-[88px]">
           <div>
             <p
@@ -79,7 +79,7 @@ export default function ProductScreen() {
           <Testimonial />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -132,7 +132,7 @@ const ProductDetails = (props: {
         />
       </div>
       <div>
-        <div className="flex flex-col items-start gap-[24px] lg:gap-0">
+        <div className="flex w-[340px] flex-col items-start gap-[24px] lg:gap-0">
           {product?.new && (
             <p className="text-[14px] tracking-[10px] text-[#D87D4A] lg:mb-[16px]">
               NEW PRODUCT
@@ -172,8 +172,8 @@ const ProductDetails = (props: {
           <div>
             <Button
               styles={{
-                width: "160px",
-                height: "48px",
+                width: '160px',
+                height: '48px',
               }}
               className="bg-[#D87D4A] hover:bg-[#FBAF85]"
               onClick={() => addProductToCart(productCartFormat)}
@@ -304,8 +304,8 @@ const LikedProduct = ({ product }: { product: OthersProps }) => {
       <Link to={`/products/${product.slug}`}>
         <Button
           styles={{
-            width: "160px",
-            height: "48px",
+            width: '160px',
+            height: '48px',
           }}
           className="bg-[#D87D4A] hover:bg-[#FBAF85]"
         >

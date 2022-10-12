@@ -1,31 +1,31 @@
-import { Link } from "react-router-dom";
-import Button from "./button";
+import { Link } from 'react-router-dom';
+import Button from './button';
 
-import { DeviceType } from "../interfaces/device";
+import { DeviceType } from '../interfaces/device';
 
-import ImageHeaderMobile from "../../assets/home/mobile/image-header.jpg";
-import ImageHeaderTablet from "../../assets/home/tablet/image-header.jpg";
-import ImageHeaderDesktop from "../../assets/home/desktop/image-hero.jpg";
+import ImageHeaderMobile from '../../assets/home/mobile/image-header.jpg';
+import ImageHeaderTablet from '../../assets/home/tablet/image-header.jpg';
+import ImageHeaderDesktop from '../../assets/home/desktop/image-hero.jpg';
 
-import { getDeviceType } from "../utils/windowSize";
+import { getDeviceType } from '../utils/windowSize';
 
 export default function Header() {
   const { type }: DeviceType = getDeviceType();
 
   const path =
-    type === "mobile"
+    type === 'mobile'
       ? ImageHeaderMobile
-      : type === "tablet"
+      : type === 'tablet'
       ? ImageHeaderTablet
       : ImageHeaderDesktop;
 
   const divImage = {
     backgroundImage: `url("${path}")`,
-    backgroundSize: "cover",
-    backgroundPosition: "center bottom",
-    backgroundRepeat: "no-repeat",
-    minWidth: "100%",
-    height: "650px",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center bottom',
+    backgroundRepeat: 'no-repeat',
+    minWidth: '100%',
+    height: '700px',
   };
 
   return (
@@ -36,8 +36,8 @@ export default function Header() {
           <Link to="/products/xx99-mark-two-headphones">
             <Button
               styles={{
-                width: "160px",
-                height: "48px",
+                width: '160px',
+                height: '48px',
               }}
               className="bg-[#D87D4A] hover:bg-[#FBAF85]"
             >

@@ -137,7 +137,7 @@ function CartItem(props: { product: CartItemProps }) {
   const priceFormated = formatPrice(product.price);
 
   return (
-    <div className="flex items-center justify-between gap-[16px]">
+    <div className="flex items-center justify-between gap-[16px] pr-[10px]">
       <div>
         <img
           src={product?.image}
