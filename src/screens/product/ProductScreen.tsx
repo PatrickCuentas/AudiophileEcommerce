@@ -55,7 +55,7 @@ export default function ProductScreen() {
   console.log(product);
 
   return (
-    <>
+    <main className="my-container">
       <div className="px-[24px] pt-[16px] md:px-[39px] md:pt-[33px]">
         <div className="mb-[88px] flex flex-col flex-wrap gap-[88px]">
           <div>
@@ -79,7 +79,7 @@ export default function ProductScreen() {
           <Testimonial />
         </div>
       </div>
-    </>
+    </main>
   );
 }
 

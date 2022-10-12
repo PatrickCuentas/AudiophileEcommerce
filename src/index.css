@@ -15,6 +15,10 @@
 }
 
 @layer components {
+  .my-container {
+    @apply mx-auto max-w-[480px] px-[24px] pb-[70px] md:max-w-[1100px] md:pb-[120px];
+  }
+
   @media screen and (min-width: 768px) {
     .grid-gallery {
       grid-template-areas:

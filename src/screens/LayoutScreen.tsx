@@ -11,12 +11,7 @@ export default function LayoutScreen() {
       <Navbar />
       <div className="h-[112px]"></div>
       {pathname === '/' ? <Header /> : null}
-      <main
-        id="main"
-        className="mx-auto max-w-[480px] px-[24px] pb-[70px] md:max-w-[1100px] md:pb-[120px]"
-      >
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
     </>
   );

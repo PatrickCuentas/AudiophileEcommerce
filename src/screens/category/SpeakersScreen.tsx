@@ -33,23 +33,25 @@ export default function SpeakersScreen() {
   }, []);
 
   return (
-    <div>
+    <>
       <CategoryTitle title={"SPEAKERS"} />
-      <div className="flex flex-col gap-[120px] py-[64px] px-[24px] text-center lg:text-start">
-        {products.map((product, i) => (
-          <Product
-            key={product.id}
-            slug={product.slug}
-            name={product.name}
-            description={product.description}
-            imagePath={product.imagePath}
-            isNew={product.new}
-            position={i % 2 === 0 ? "left" : "right"}
-          />
-        ))}
-        <Categories />
-        <Testimonial />
-      </div>
-    </div>
+      <main className="my-container">
+				<div className="flex flex-col gap-[120px] py-[64px] px-[24px] text-center lg:text-start">
+					{products.map((product, i) => (
+						<Product
+							key={product.id}
+							slug={product.slug}
+							name={product.name}
+							description={product.description}
+							imagePath={product.imagePath}
+							isNew={product.new}
+							position={i % 2 === 0 ? "left" : "right"}
+						/>
+					))}
+					<Categories />
+					<Testimonial />
+				</div>
+			</main>
+    </>
   );
 }
