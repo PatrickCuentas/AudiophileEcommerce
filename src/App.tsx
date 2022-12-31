@@ -1,4 +1,4 @@
-import Routings from "./router/Routings.jsx";
+import Routings from 'lib/router/Routings';
 
 export default function App() {
   return <Routings />;

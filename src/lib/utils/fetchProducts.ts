@@ -1,4 +1,4 @@
-import Products from "../../data.js";
+import Products from "../../../data";
 import { ProductFullProps } from "../interfaces/product";
 import yx1Earphones from "/assets/cart/image-yx1-earphones.jpg";
 import xx59Headphones from "/assets/cart/image-xx59-headphones.jpg";

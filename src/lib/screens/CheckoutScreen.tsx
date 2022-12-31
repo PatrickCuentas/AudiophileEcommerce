@@ -11,7 +11,6 @@ import { formatPrice } from '../utils/priceProducts';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { toast } from 'react-hot-toast';
 
 interface CartItemProps {
   id: number | string;
@@ -24,7 +23,7 @@ interface CartItemProps {
 
 export default function CheckoutScreen() {
   const navigate = useNavigate();
-  const {cartProducts, totalPrice} = useContext(CartContext);
+  const { cartProducts, totalPrice } = useContext(CartContext);
   const [paymentValue, paymentInputProps] = useRadioButtons('payment', 'money');
 
   const formik = useFormik({
