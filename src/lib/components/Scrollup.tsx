@@ -25,7 +25,7 @@ function Scrollup() {
   }, []);
 
   return (
-    <div className="scroll-up bottom-0 right-0 mr-[30px] mb-[30px]">
+    <div className="scroll-up fixed bottom-0 right-[60px] mr-[30px] mb-[30px] md:right-0">
       <button
         onClick={goToTop}
         className="rounded-full border-2 border-slate-100 bg-[hsla(0,0%,0%,1)] p-[10px] text-[#fff] shadow-lg"
