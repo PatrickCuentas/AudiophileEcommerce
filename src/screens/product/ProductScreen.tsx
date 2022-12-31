@@ -1,18 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-
-import Button from '../../components/button';
-import Categories from '../../components/categories';
-import Testimonial from '../../components/testimonial';
-
+import PrimaryButton from '../../components/PrimaryButton';
+import Categories from '../../components/Categories';
+import AboutUs from '../../components/AboutUs';
 import { DeviceType } from '../../interfaces/device';
 import { ProductFullProps } from '../../interfaces/product';
 import { CartItemProps } from '../../interfaces/cart';
 import { ItemBoxProps } from '../../interfaces/item';
 import { OthersProps } from '../../interfaces/others';
-
 import { CartContext } from '../../context/CartContext.jsx';
+import CheckCircle from '../../../assets/CheckCircle.svg';
 
 import {
   getCartImageBySlugName,
@@ -21,8 +18,10 @@ import {
 } from '../../utils/fetchProducts';
 import { getDeviceType } from '../../utils/windowSize';
 import { formatPrice } from '../../utils/priceProducts';
+import Main from '../../layout/Main';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
-const STOCK = 10;
 const INITIAL_QUANTITY = 1;
 
 export default function ProductScreen() {
@@ -52,10 +51,8 @@ export default function ProductScreen() {
 
   if (product === null) return <div />;
 
-  console.log(product);
-
   return (
-    <main className="my-container">
+    <Main>
       <div className="px-[24px] pt-[16px] md:px-[39px] md:pt-[33px]">
         <div className="mb-[88px] flex flex-col flex-wrap gap-[88px]">
           <div>
@@ -76,10 +73,10 @@ export default function ProductScreen() {
           <Gallery product={product} />
           <RecommendedProducts product={product} />
           <Categories />
-          <Testimonial />
+          <AboutUs />
         </div>
       </div>
-    </main>
+    </Main>
   );
 }
 
@@ -96,7 +93,7 @@ const ProductDetails = (props: {
   const cartImage = getCartImageBySlugName(product?.slug);
   const priceFormated = formatPrice(product?.price);
 
-  const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart, getProductStock } = useContext(CartContext);
 
   const productCartFormat: CartItemProps = {
     id: product.id,
@@ -104,7 +101,6 @@ const ProductDetails = (props: {
     price: product.price,
     image: cartImage,
     slug: product.slug,
-    quantity: quantity ?? INITIAL_QUANTITY,
   };
 
   useEffect(() => {
@@ -112,8 +108,8 @@ const ProductDetails = (props: {
   }, [productName]);
 
   const addUnit = () => {
-    //simulate stock
-    if (quantity >= STOCK) return;
+    const stock = getProductStock(product.id);
+    if (quantity >= stock) return;
     setQuantity(quantity + 1);
   };
 
@@ -170,18 +166,41 @@ const ProductDetails = (props: {
             </button>
           </div>
           <div>
-            <Button
-              styles={{
-                width: '160px',
-                height: '48px',
-              }}
-              className="bg-[#D87D4A] hover:bg-[#FBAF85]"
-              onClick={() => addProductToCart(productCartFormat)}
-            >
-              <span className="text-[13px] font-bold tracking-[1px] text-white">
-                ADD TO CART
-              </span>
-            </Button>
+            <div>
+              <PrimaryButton
+                className="h-[48px] w-[160px] bg-[#D87D4A] hover:bg-[#FBAF85]"
+                onClick={() => {
+                  toast(
+                    (t) => {
+                      return (
+                        <div
+                          className="flex cursor-pointer items-center gap-[16px]"
+                          onClick={() => toast.dismiss(t.id)}
+                        >
+                          <img
+                            src={CheckCircle}
+                            alt="checked"
+                            className="h-[32px] w-[32px]"
+                          />
+                          <p className="text-[18px] font-bold tracking-[1.29px] text-[#D87D4A]">
+                            Product added to cart
+                          </p>
+                        </div>
+                      );
+                    },
+                    {
+                      position: 'top-right',
+                      duration: 3000,
+                    }
+                  );
+                  addProductToCart(productCartFormat, quantity);
+                }}
+              >
+                <span className="text-[13px] font-bold tracking-[1px] text-white">
+                  ADD TO CART
+                </span>
+              </PrimaryButton>
+            </div>
           </div>
         </div>
       </div>
@@ -301,16 +320,13 @@ const LikedProduct = ({ product }: { product: OthersProps }) => {
         />
       </div>
       <h3 className="text-[24px] font-bold leading-[1.71px]">{product.name}</h3>
-      <Link to={`/products/${product.slug}`}>
-        <Button
-          styles={{
-            width: '160px',
-            height: '48px',
-          }}
-          className="bg-[#D87D4A] hover:bg-[#FBAF85]"
-        >
+      <Link
+        to={`/products/${product.slug}`}
+        onClick={() => window.scrollTo(0, 0)}
+      >
+        <PrimaryButton className="h-[48px] w-[160px] bg-[#D87D4A] hover:bg-[#FBAF85]">
           <span className="text-[13px] font-bold text-white">SEE PRODUCT</span>
-        </Button>
+        </PrimaryButton>
       </Link>
     </div>
   );

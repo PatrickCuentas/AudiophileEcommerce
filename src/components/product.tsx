@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
-
-import Button from "./button";
-
-import { ProductProps } from "../interfaces/product";
+import PrimaryButton from './PrimaryButton';
+import { ProductProps } from '../interfaces/product';
+import { Link } from 'react-router-dom';
 
 export default function Product({
-  slug = "Slug",
-  name = "Nombre",
-  description = "Descripción",
-  imagePath = "ImagePath",
+  slug = 'Slug',
+  name = 'Nombre',
+  description = 'Descripción',
+  imagePath = 'ImagePath',
   isNew = false,
-  position = "left",
+  position = 'left',
 }: ProductProps) {
   const flexDirectionPosition =
-    position === "left" ? "lg:flex-row" : "lg:flex-row-reverse";
+    position === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse';
 
   return (
     <div
@@ -39,17 +37,11 @@ export default function Product({
           {description}
         </p>
         <Link to={`/products/${slug}`}>
-          <Button
-            styles={{
-              width: "160px",
-              height: "48px",
-            }}
-            className="bg-[#D87D4A] hover:bg-[#FBAF85]"
-          >
+          <PrimaryButton className="h-[48px] w-[160px] bg-[#D87D4A] hover:bg-[#FBAF85]">
             <span className="text-[13px] font-bold text-white">
               SEE PRODUCT
             </span>
-          </Button>
+          </PrimaryButton>
         </Link>
       </div>
     </div>

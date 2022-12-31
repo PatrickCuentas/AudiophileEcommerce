@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 interface CartItemProps {
   id: number | string;
@@ -15,12 +15,32 @@ export const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState<CartItemProps[]>([]);
   const [totalPrice, setTotalPrice] = useState<number | string>(0);
 
-  const addProductToCart = (product: CartItemProps) => {
+  const getProductStock = (productId) => {
+    // get stock from api
+    return 10;
+  };
+
+  const addProductToCart = (product: CartItemProps, quantity: number) => {
     const productExists = cartProducts.find(
       (p: CartItemProps) => p.id === product.id
     );
-    if (productExists) return;
-    setCartProducts([...cartProducts, product]);
+
+    if (productExists) {
+      const newCartProducts = cartProducts.map((p: CartItemProps) => {
+        if (p.id === product.id) {
+          const newQuantity = p.quantity + quantity;
+          return {
+            ...p,
+            quantity:
+              newQuantity > getProductStock(p.id)
+                ? getProductStock(p.id)
+                : newQuantity,
+          };
+        }
+        return p;
+      });
+      setCartProducts(newCartProducts);
+    } else setCartProducts([...cartProducts, { ...product, quantity }]);
   };
 
   const removeAllProducts = () => {
@@ -50,7 +70,7 @@ export const CartProvider = ({ children }) => {
     if (productIndex === -1) return;
 
     switch (operation) {
-      case "+": {
+      case '+': {
         if (product.quantity >= 10) break;
 
         newCartProducts[productIndex] = {
@@ -59,7 +79,7 @@ export const CartProvider = ({ children }) => {
         };
         break;
       }
-      case "-": {
+      case '-': {
         if (product.quantity <= 1) {
           newCartProducts = removeProductFromCart(product);
         } else {
@@ -83,13 +103,14 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartProducts,
+        totalPrice,
         setCartProducts,
         addProductToCart,
         removeAllProducts,
         getTotalPrice,
-        changeCartItemQuantity,
-        totalPrice,
         setTotalPrice,
+        changeCartItemQuantity,
+        getProductStock,
       }}
     >
       {children}

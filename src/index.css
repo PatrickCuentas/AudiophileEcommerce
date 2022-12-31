@@ -15,9 +15,6 @@
 }
 
 @layer components {
-  .my-container {
-    @apply mx-auto max-w-[480px] px-[24px] pb-[70px] md:max-w-[1100px] md:pb-[120px];
-  }
 
   @media screen and (min-width: 768px) {
     .grid-gallery {
@@ -49,27 +46,18 @@
   }
 
   .centered-axis-cart {
-    position: absolute;
     left: 50%;
-    top: 0%;
     transform: translate(-50%, 0%);
-    margin-top: 150px;
   }
 
   .right-axis-cart {
-    position: absolute;
     left: 90%;
-    top: 0%;
     transform: translate(-90%, 0%);
-    margin-top: 150px;
   }
 
   .centered-axis-payment {
-    position: absolute;
     left: 50%;
-    top: 0%;
     transform: translate(-50%, 0%);
-    margin-top: 300px;
   }
 
   .centered-text-x {

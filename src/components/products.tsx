@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
-import Button from "./button";
+import { Link } from 'react-router-dom';
+import PrimaryButton from './PrimaryButton';
 
-import speakerZx9Mobile from "../../assets/home/mobile/image-speaker-zx9.png";
-import speakerZx9Tablet from "../../assets/home/tablet/image-speaker-zx9.png";
-import speakerZx9Desktop from "../../assets/home/desktop/image-speaker-zx9.png";
+import speakerZx9Mobile from '../../assets/home/mobile/image-speaker-zx9.png';
+import speakerZx9Tablet from '../../assets/home/tablet/image-speaker-zx9.png';
+import speakerZx9Desktop from '../../assets/home/desktop/image-speaker-zx9.png';
 
-import speakerZx7Mobile from "../../assets/home/mobile/image-speaker-zx7.jpg";
-import speakerZx7Tablet from "../../assets/home/tablet/image-speaker-zx7.jpg";
-import speakerZx7Desktop from "../../assets/home/desktop/image-speaker-zx7.jpg";
+import speakerZx7Mobile from '../../assets/home/mobile/image-speaker-zx7.jpg';
+import speakerZx7Tablet from '../../assets/home/tablet/image-speaker-zx7.jpg';
+import speakerZx7Desktop from '../../assets/home/desktop/image-speaker-zx7.jpg';
 
-import earphonesYx1Mobile from "../../assets/home/mobile/image-earphones-yx1.jpg";
-import earphonesYx1Tablet from "../../assets/home/tablet/image-earphones-yx1.jpg";
-import earphonesYx1Desktop from "../../assets/home/desktop/image-earphones-yx1.jpg";
+import earphonesYx1Mobile from '../../assets/home/mobile/image-earphones-yx1.jpg';
+import earphonesYx1Tablet from '../../assets/home/tablet/image-earphones-yx1.jpg';
+import earphonesYx1Desktop from '../../assets/home/desktop/image-earphones-yx1.jpg';
 
-import { getDeviceType } from "../utils/windowSize";
+import { getDeviceType } from '../utils/windowSize';
 
 const { type } = getDeviceType();
 
@@ -31,9 +31,9 @@ export default function Products() {
 
 function SpeakerZX9() {
   const imgUrl =
-    type === "mobile"
+    type === 'mobile'
       ? speakerZx9Mobile
-      : type === "tablet"
+      : type === 'tablet'
       ? speakerZx9Tablet
       : speakerZx9Desktop;
 
@@ -56,14 +56,11 @@ function SpeakerZX9() {
             truly remarkable sound.
           </p>
           <Link to="/products/zx9-speaker" className="lg:block lg:text-start">
-            <Button
-              styles={{ width: "160px", height: "48px" }}
-              className="group border-[1px] border-black bg-transparent hover:bg-[#000]"
-            >
+            <PrimaryButton className="group h-[48px] w-[160px] border-[1px] border-black bg-transparent hover:bg-[#000]">
               <span className="text-[13px] font-bold text-black group-hover:text-white">
                 SEE PRODUCT
               </span>
-            </Button>
+            </PrimaryButton>
           </Link>
         </div>
       </div>
@@ -73,17 +70,17 @@ function SpeakerZX9() {
 
 function SpeakerZX7() {
   const imgUrl =
-    type === "mobile"
+    type === 'mobile'
       ? speakerZx7Mobile
-      : type === "tablet"
+      : type === 'tablet'
       ? speakerZx7Tablet
       : speakerZx7Desktop;
 
   const backgroundImageDiv = {
     backgroundImage: `url(${imgUrl})`,
-    backgroundSize: `${type === "mobile" ? "cover" : "100%"}`,
-    backgroundPosition: "center center",
-    backgroundRepeat: "no-repeat",
+    backgroundSize: `${type === 'mobile' ? 'cover' : '100%'}`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
   };
 
   return (
@@ -94,14 +91,11 @@ function SpeakerZX7() {
             ZX7 SPEAKER
           </h2>
           <Link to="/products/zx7-speaker">
-            <Button
-              styles={{ width: "160px", height: "48px" }}
-              className="group border-[1px] border-black bg-transparent hover:bg-[#000]"
-            >
+            <PrimaryButton className="group h-[48px] w-[160px] border-[1px] border-black bg-transparent hover:bg-[#000]">
               <span className="text-[13px] font-bold text-black group-hover:text-white">
                 SEE PRODUCT
               </span>
-            </Button>
+            </PrimaryButton>
           </Link>
         </div>
       </div>
@@ -111,9 +105,9 @@ function SpeakerZX7() {
 
 function EarphonesYX1() {
   const imgUrl =
-    type === "mobile"
+    type === 'mobile'
       ? earphonesYx1Mobile
-      : type === "tablet"
+      : type === 'tablet'
       ? earphonesYx1Tablet
       : earphonesYx1Desktop;
 
@@ -133,14 +127,11 @@ function EarphonesYX1() {
               YX1 EARPHONES
             </h2>
             <Link to="/products/yx1-earphones">
-              <Button
-                styles={{ width: "160px", height: "48px" }}
-                className="group border-[1px] border-black bg-transparent hover:bg-[#000]"
-              >
+              <PrimaryButton className="group h-[48px] w-[160px]  border-[1px] border-black bg-transparent hover:bg-[#000]">
                 <span className="text-[13px] font-bold text-black group-hover:text-white">
                   SEE PRODUCT
                 </span>
-              </Button>
+              </PrimaryButton>
             </Link>
           </div>
         </div>

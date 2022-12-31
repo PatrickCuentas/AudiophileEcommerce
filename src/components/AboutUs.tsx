@@ -1,15 +1,15 @@
-import bestGearSharedMobile from "../../assets/shared/mobile/image-best-gear.jpg";
-import bestGearSharedTablet from "../../assets/shared/tablet/image-best-gear.jpg";
-import bestGearSharedDesktop from "../../assets/shared/desktop/image-best-gear.jpg";
-import { getDeviceType } from "../utils/windowSize";
+import bestGearSharedMobile from '../../assets/shared/mobile/image-best-gear.jpg';
+import bestGearSharedTablet from '../../assets/shared/tablet/image-best-gear.jpg';
+import bestGearSharedDesktop from '../../assets/shared/desktop/image-best-gear.jpg';
+import { getDeviceType } from '../utils/windowSize';
 
 const { type } = getDeviceType();
 
-export default function Testimonial() {
+export default function AboutUs() {
   const imgUrl =
-    type === "mobile"
+    type === 'mobile'
       ? bestGearSharedMobile
-      : type === "tablet"
+      : type === 'tablet'
       ? bestGearSharedTablet
       : bestGearSharedDesktop;
 

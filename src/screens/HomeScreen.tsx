@@ -1,13 +1,14 @@
-import Categories from '../components/categories';
-import Products from '../components/products';
-import Testimonial from '../components/testimonial';
+import Products from '../components/Products';
+import AboutUs from '../components/AboutUs';
+import Categories from '../components/Categories';
+import Main from '../layout/Main';
 
 export default function HomeScreen() {
   return (
-    <main className="my-container">
+    <Main>
       <Categories />
       <Products />
-      <Testimonial />
-    </main>
+      <AboutUs />
+    </Main>
   );
 }
