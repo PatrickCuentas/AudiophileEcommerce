@@ -9,7 +9,7 @@ import { CartItemProps } from '../../interfaces/cart';
 import { ItemBoxProps } from '../../interfaces/item';
 import { OthersProps } from '../../interfaces/others';
 import { CartContext } from '../../context/CartContext.jsx';
-import CheckCircle from '../../../assets/CheckCircle.svg';
+import CheckCircle from '/assets/CheckCircle.svg';
 
 import {
   getCartImageBySlugName,

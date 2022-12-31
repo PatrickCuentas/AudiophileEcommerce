@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 import { DeviceType } from '../interfaces/device';
 
-import ImageHeaderMobile from '../../assets/home/mobile/image-header.jpg';
-import ImageHeaderTablet from '../../assets/home/tablet/image-header.jpg';
-import ImageHeaderDesktop from '../../assets/home/desktop/image-hero.jpg';
+import ImageHeaderMobile from '/assets/home/mobile/image-header.jpg';
+import ImageHeaderTablet from '/assets/home/tablet/image-header.jpg';
+import ImageHeaderDesktop from '/assets/home/desktop/image-hero.jpg';
 
 import { getDeviceType } from '../utils/windowSize';
 import PrimaryButton from '../components/PrimaryButton';

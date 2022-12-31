@@ -5,7 +5,7 @@ import { CartItemProps } from '../interfaces/cart';
 import PrimaryButton from './PrimaryButton';
 import { formatPrice } from '../utils/priceProducts';
 import { getShortName } from '../utils/fetchProducts';
-import CheckCircle from '../../assets/CheckCircle.svg';
+import CheckCircle from '/assets/CheckCircle.svg';
 
 function CheckoutPortal() {
   const [show, setShow] = useState(false);

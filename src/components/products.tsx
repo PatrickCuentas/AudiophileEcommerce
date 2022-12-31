@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 import PrimaryButton from './PrimaryButton';
 
-import speakerZx9Mobile from '../../assets/home/mobile/image-speaker-zx9.png';
-import speakerZx9Tablet from '../../assets/home/tablet/image-speaker-zx9.png';
-import speakerZx9Desktop from '../../assets/home/desktop/image-speaker-zx9.png';
+import speakerZx9Mobile from '/assets/home/mobile/image-speaker-zx9.png';
+import speakerZx9Tablet from '/assets/home/tablet/image-speaker-zx9.png';
+import speakerZx9Desktop from '/assets/home/desktop/image-speaker-zx9.png';
 
-import speakerZx7Mobile from '../../assets/home/mobile/image-speaker-zx7.jpg';
-import speakerZx7Tablet from '../../assets/home/tablet/image-speaker-zx7.jpg';
-import speakerZx7Desktop from '../../assets/home/desktop/image-speaker-zx7.jpg';
+import speakerZx7Mobile from '/assets/home/mobile/image-speaker-zx7.jpg';
+import speakerZx7Tablet from '/assets/home/tablet/image-speaker-zx7.jpg';
+import speakerZx7Desktop from '/assets/home/desktop/image-speaker-zx7.jpg';
 
-import earphonesYx1Mobile from '../../assets/home/mobile/image-earphones-yx1.jpg';
-import earphonesYx1Tablet from '../../assets/home/tablet/image-earphones-yx1.jpg';
-import earphonesYx1Desktop from '../../assets/home/desktop/image-earphones-yx1.jpg';
+import earphonesYx1Mobile from '/assets/home/mobile/image-earphones-yx1.jpg';
+import earphonesYx1Tablet from '/assets/home/tablet/image-earphones-yx1.jpg';
+import earphonesYx1Desktop from '/assets/home/desktop/image-earphones-yx1.jpg';
 
 import { getDeviceType } from '../utils/windowSize';
 

@@ -1,6 +1,6 @@
-import bestGearSharedMobile from '../../assets/shared/mobile/image-best-gear.jpg';
-import bestGearSharedTablet from '../../assets/shared/tablet/image-best-gear.jpg';
-import bestGearSharedDesktop from '../../assets/shared/desktop/image-best-gear.jpg';
+import bestGearSharedMobile from '/assets/shared/mobile/image-best-gear.jpg';
+import bestGearSharedTablet from '/assets/shared/tablet/image-best-gear.jpg';
+import bestGearSharedDesktop from '/assets/shared/desktop/image-best-gear.jpg';
 import { getDeviceType } from '../utils/windowSize';
 
 const { type } = getDeviceType();

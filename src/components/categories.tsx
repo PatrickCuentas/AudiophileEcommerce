@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router';
-import headphonesXx99MarkOneRemoveBgMobile from '../../assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview-removebg.png';
-import speakerZx9RemoveBgMobile from '../../assets/product-zx9-speaker/mobile/image-category-page-preview-removebg.png';
-import earphonesYx1RemoveBgMobile from '../../assets/product-yx1-earphones/mobile/image-category-page-preview-removebg.png';
+import headphonesXx99MarkOneRemoveBgMobile from '/assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview-removebg.png';
+import speakerZx9RemoveBgMobile from '/assets/product-zx9-speaker/mobile/image-category-page-preview-removebg.png';
+import earphonesYx1RemoveBgMobile from '/assets/product-yx1-earphones/mobile/image-category-page-preview-removebg.png';
 import Category from '../components/Category';
 import { CategoryProps } from '../interfaces/category';
 import { v4 as uuidv4 } from 'uuid';

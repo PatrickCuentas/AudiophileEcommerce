@@ -1,147 +1,147 @@
 // image
-import earphoneYx1Mobile from './assets/product-yx1-earphones/mobile/image-product.jpg';
-import earphoneYx1Tablet from './assets/product-yx1-earphones/tablet/image-product.jpg';
-import earphoneYx1Desktop from './assets/product-yx1-earphones/desktop/image-product.jpg';
+import earphoneYx1Mobile from '/assets/product-yx1-earphones/mobile/image-product.jpg';
+import earphoneYx1Tablet from '/assets/product-yx1-earphones/tablet/image-product.jpg';
+import earphoneYx1Desktop from '/assets/product-yx1-earphones/desktop/image-product.jpg';
 
-import headphonesXx59Mobile from './assets/product-xx59-headphones/mobile/image-product.jpg';
-import headphonesXx59Tablet from './assets/product-xx59-headphones/tablet/image-product.jpg';
-import headphonesXx59Desktop from './assets/product-xx59-headphones/desktop/image-product.jpg';
+import headphonesXx59Mobile from '/assets/product-xx59-headphones/mobile/image-product.jpg';
+import headphonesXx59Tablet from '/assets/product-xx59-headphones/tablet/image-product.jpg';
+import headphonesXx59Desktop from '/assets/product-xx59-headphones/desktop/image-product.jpg';
 
-import headphonesXx59MarkOneMobile from './assets/product-xx99-mark-one-headphones/mobile/image-product.jpg';
-import headphonesXx59MarkOneTablet from './assets/product-xx99-mark-one-headphones/tablet/image-product.jpg';
-import headphonesXx59MarkOneDesktop from './assets/product-xx99-mark-one-headphones/desktop/image-product.jpg';
+import headphonesXx59MarkOneMobile from '/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg';
+import headphonesXx59MarkOneTablet from '/assets/product-xx99-mark-one-headphones/tablet/image-product.jpg';
+import headphonesXx59MarkOneDesktop from '/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg';
 
-import headphonesXx99MarkTwoMobile from './assets/product-xx99-mark-two-headphones/mobile/image-product.jpg';
-import headphonesXx99MarkTwoTablet from './assets/product-xx99-mark-two-headphones/tablet/image-product.jpg';
-import headphonesXx99MarkTwoDesktop from './assets/product-xx99-mark-two-headphones/desktop/image-product.jpg';
+import headphonesXx99MarkTwoMobile from '/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg';
+import headphonesXx99MarkTwoTablet from '/assets/product-xx99-mark-two-headphones/tablet/image-product.jpg';
+import headphonesXx99MarkTwoDesktop from '/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg';
 
-import speakerZx7Mobile from './assets/product-zx7-speaker/mobile/image-product.jpg';
-import speakerZx7Tablet from './assets/product-zx7-speaker/tablet/image-product.jpg';
-import speakerZx7Desktop from './assets/product-zx7-speaker/desktop/image-product.jpg';
+import speakerZx7Mobile from '/assets/product-zx7-speaker/mobile/image-product.jpg';
+import speakerZx7Tablet from '/assets/product-zx7-speaker/tablet/image-product.jpg';
+import speakerZx7Desktop from '/assets/product-zx7-speaker/desktop/image-product.jpg';
 
-import speakerZx9Mobile from './assets/product-zx9-speaker/mobile/image-product.jpg';
-import speakerZx9Tablet from './assets/product-zx9-speaker/tablet/image-product.jpg';
-import speakerZx9Desktop from './assets/product-zx9-speaker/desktop/image-product.jpg';
+import speakerZx9Mobile from '/assets/product-zx9-speaker/mobile/image-product.jpg';
+import speakerZx9Tablet from '/assets/product-zx9-speaker/tablet/image-product.jpg';
+import speakerZx9Desktop from '/assets/product-zx9-speaker/desktop/image-product.jpg';
 
 // category
-import earphoneYx1CategoryMobile from './assets/product-yx1-earphones/mobile/image-category-page-preview.jpg';
-import earphoneYx1CategoryTablet from './assets/product-yx1-earphones/tablet/image-category-page-preview.jpg';
-import earphoneYx1CategoryDesktop from './assets/product-yx1-earphones/desktop/image-category-page-preview.jpg';
+import earphoneYx1CategoryMobile from '/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg';
+import earphoneYx1CategoryTablet from '/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg';
+import earphoneYx1CategoryDesktop from '/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg';
 
-import headphonesXx59CategoryMobile from './assets/product-xx59-headphones/mobile/image-category-page-preview.jpg';
-import headphonesXx59CategoryTablet from './assets/product-xx59-headphones/tablet/image-category-page-preview.jpg';
-import headphonesXx59CategoryDesktop from './assets/product-xx59-headphones/desktop/image-category-page-preview.jpg';
+import headphonesXx59CategoryMobile from '/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg';
+import headphonesXx59CategoryTablet from '/assets/product-xx59-headphones/tablet/image-category-page-preview.jpg';
+import headphonesXx59CategoryDesktop from '/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg';
 
-import headphonesMarkOneCategoryMobile from './assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg';
-import headphonesMarkOneCategoryTablet from './assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg';
-import headphonesMarkOneCategoryDesktop from './assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg';
+import headphonesMarkOneCategoryMobile from '/assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg';
+import headphonesMarkOneCategoryTablet from '/assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg';
+import headphonesMarkOneCategoryDesktop from '/assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg';
 
-import headphonesMarkTwoCategoryMobile from './assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg';
-import headphonesMarkTwoCategoryTablet from './assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg';
-import headphonesMarkTwoCategoryDesktop from './assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg';
+import headphonesMarkTwoCategoryMobile from '/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg';
+import headphonesMarkTwoCategoryTablet from '/assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg';
+import headphonesMarkTwoCategoryDesktop from '/assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg';
 
-import speakersZx7CategoryMobile from './assets/product-zx7-speaker/mobile/image-category-page-preview.jpg';
-import speakersZx7CategoryTablet from './assets/product-zx7-speaker/tablet/image-category-page-preview.jpg';
-import speakersZx7CategoryDesktop from './assets/product-zx7-speaker/desktop/image-category-page-preview.jpg';
+import speakersZx7CategoryMobile from '/assets/product-zx7-speaker/mobile/image-category-page-preview.jpg';
+import speakersZx7CategoryTablet from '/assets/product-zx7-speaker/tablet/image-category-page-preview.jpg';
+import speakersZx7CategoryDesktop from '/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg';
 
-import speakersZx9CategoryMobile from './assets/product-zx9-speaker/mobile/image-category-page-preview.jpg';
-import speakersZx9CategoryTablet from './assets/product-zx9-speaker/tablet/image-category-page-preview.jpg';
-import speakersZx9CategoryDesktop from './assets/product-zx9-speaker/desktop/image-category-page-preview.jpg';
+import speakersZx9CategoryMobile from '/assets/product-zx9-speaker/mobile/image-category-page-preview.jpg';
+import speakersZx9CategoryTablet from '/assets/product-zx9-speaker/tablet/image-category-page-preview.jpg';
+import speakersZx9CategoryDesktop from '/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg';
 
 // gallery
-import earphoneYx1Gallery1Mobile from './assets/product-yx1-earphones/mobile/image-gallery-1.jpg';
-import earphoneYx1Gallery1Tablet from './assets/product-yx1-earphones/tablet/image-gallery-1.jpg';
-import earphoneYx1Gallery1Desktop from './assets/product-yx1-earphones/desktop/image-gallery-1.jpg';
+import earphoneYx1Gallery1Mobile from '/assets/product-yx1-earphones/mobile/image-gallery-1.jpg';
+import earphoneYx1Gallery1Tablet from '/assets/product-yx1-earphones/tablet/image-gallery-1.jpg';
+import earphoneYx1Gallery1Desktop from '/assets/product-yx1-earphones/desktop/image-gallery-1.jpg';
 
-import earphoneYx1Gallery2Mobile from './assets/product-yx1-earphones/mobile/image-gallery-2.jpg';
-import earphoneYx1Gallery2Tablet from './assets/product-yx1-earphones/tablet/image-gallery-2.jpg';
-import earphoneYx1Gallery2Desktop from './assets/product-yx1-earphones/desktop/image-gallery-2.jpg';
+import earphoneYx1Gallery2Mobile from '/assets/product-yx1-earphones/mobile/image-gallery-2.jpg';
+import earphoneYx1Gallery2Tablet from '/assets/product-yx1-earphones/tablet/image-gallery-2.jpg';
+import earphoneYx1Gallery2Desktop from '/assets/product-yx1-earphones/desktop/image-gallery-2.jpg';
 
-import earphoneYx1Gallery3Mobile from './assets/product-yx1-earphones/mobile/image-gallery-3.jpg';
-import earphoneYx1Gallery3Tablet from './assets/product-yx1-earphones/tablet/image-gallery-3.jpg';
-import earphoneYx1Gallery3Desktop from './assets/product-yx1-earphones/desktop/image-gallery-3.jpg';
+import earphoneYx1Gallery3Mobile from '/assets/product-yx1-earphones/mobile/image-gallery-3.jpg';
+import earphoneYx1Gallery3Tablet from '/assets/product-yx1-earphones/tablet/image-gallery-3.jpg';
+import earphoneYx1Gallery3Desktop from '/assets/product-yx1-earphones/desktop/image-gallery-3.jpg';
 
-import headphonesXx59Gallery1Mobile from './assets/product-xx59-headphones/mobile/image-gallery-1.jpg';
-import headphonesXx59Gallery1Tablet from './assets/product-xx59-headphones/tablet/image-gallery-1.jpg';
-import headphonesXx59Gallery1Desktop from './assets/product-xx59-headphones/desktop/image-gallery-1.jpg';
+import headphonesXx59Gallery1Mobile from '/assets/product-xx59-headphones/mobile/image-gallery-1.jpg';
+import headphonesXx59Gallery1Tablet from '/assets/product-xx59-headphones/tablet/image-gallery-1.jpg';
+import headphonesXx59Gallery1Desktop from '/assets/product-xx59-headphones/desktop/image-gallery-1.jpg';
 
-import headphonesXx59Gallery2Mobile from './assets/product-xx59-headphones/mobile/image-gallery-2.jpg';
-import headphonesXx59Gallery2Tablet from './assets/product-xx59-headphones/tablet/image-gallery-2.jpg';
-import headphonesXx59Gallery2Desktop from './assets/product-xx59-headphones/desktop/image-gallery-2.jpg';
+import headphonesXx59Gallery2Mobile from '/assets/product-xx59-headphones/mobile/image-gallery-2.jpg';
+import headphonesXx59Gallery2Tablet from '/assets/product-xx59-headphones/tablet/image-gallery-2.jpg';
+import headphonesXx59Gallery2Desktop from '/assets/product-xx59-headphones/desktop/image-gallery-2.jpg';
 
-import headphonesXx59Gallery3Mobile from './assets/product-xx59-headphones/mobile/image-gallery-3.jpg';
-import headphonesXx59Gallery3Tablet from './assets/product-xx59-headphones/tablet/image-gallery-3.jpg';
-import headphonesXx59Gallery3Desktop from './assets/product-xx59-headphones/desktop/image-gallery-3.jpg';
+import headphonesXx59Gallery3Mobile from '/assets/product-xx59-headphones/mobile/image-gallery-3.jpg';
+import headphonesXx59Gallery3Tablet from '/assets/product-xx59-headphones/tablet/image-gallery-3.jpg';
+import headphonesXx59Gallery3Desktop from '/assets/product-xx59-headphones/desktop/image-gallery-3.jpg';
 
-import headphonesMarkOneGallery1Mobile from './assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg';
-import headphonesMarkOneGallery1Tablet from './assets/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg';
-import headphonesMarkOneGallery1Desktop from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg';
+import headphonesMarkOneGallery1Mobile from '/assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg';
+import headphonesMarkOneGallery1Tablet from '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg';
+import headphonesMarkOneGallery1Desktop from '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg';
 
-import headphonesMarkOneGallery2Mobile from './assets/product-xx99-mark-one-headphones/mobile/image-gallery-2.jpg';
-import headphonesMarkOneGallery2Tablet from './assets/product-xx99-mark-one-headphones/tablet/image-gallery-2.jpg';
-import headphonesMarkOneGallery2Desktop from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg';
+import headphonesMarkOneGallery2Mobile from '/assets/product-xx99-mark-one-headphones/mobile/image-gallery-2.jpg';
+import headphonesMarkOneGallery2Tablet from '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-2.jpg';
+import headphonesMarkOneGallery2Desktop from '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg';
 
-import headphonesMarkOneGallery3Mobile from './assets/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg';
-import headphonesMarkOneGallery3Tablet from './assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg';
-import headphonesMarkOneGallery3Desktop from './assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg';
+import headphonesMarkOneGallery3Mobile from '/assets/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg';
+import headphonesMarkOneGallery3Tablet from '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg';
+import headphonesMarkOneGallery3Desktop from '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg';
 
-import headphonesMarkTwoGallery1Mobile from './assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg';
-import headphonesMarkTwoGallery1Tablet from './assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg';
-import headphonesMarkTwoGallery1Desktop from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg';
+import headphonesMarkTwoGallery1Mobile from '/assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg';
+import headphonesMarkTwoGallery1Tablet from '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg';
+import headphonesMarkTwoGallery1Desktop from '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg';
 
-import headphonesMarkTwoGallery2Mobile from './assets/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg';
-import headphonesMarkTwoGallery2Tablet from './assets/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg';
-import headphonesMarkTwoGallery2Desktop from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg';
+import headphonesMarkTwoGallery2Mobile from '/assets/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg';
+import headphonesMarkTwoGallery2Tablet from '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg';
+import headphonesMarkTwoGallery2Desktop from '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg';
 
-import headphonesMarkTwoGallery3Mobile from './assets/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg';
-import headphonesMarkTwoGallery3Tablet from './assets/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg';
-import headphonesMarkTwoGallery3Desktop from './assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
+import headphonesMarkTwoGallery3Mobile from '/assets/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg';
+import headphonesMarkTwoGallery3Tablet from '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg';
+import headphonesMarkTwoGallery3Desktop from '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
 
-import speakersZx7Gallery1Mobile from './assets/product-zx7-speaker/mobile/image-gallery-1.jpg';
-import speakersZx7Gallery1Tablet from './assets/product-zx7-speaker/tablet/image-gallery-1.jpg';
-import speakersZx7Gallery1Desktop from './assets/product-zx7-speaker/desktop/image-gallery-1.jpg';
+import speakersZx7Gallery1Mobile from '/assets/product-zx7-speaker/mobile/image-gallery-1.jpg';
+import speakersZx7Gallery1Tablet from '/assets/product-zx7-speaker/tablet/image-gallery-1.jpg';
+import speakersZx7Gallery1Desktop from '/assets/product-zx7-speaker/desktop/image-gallery-1.jpg';
 
-import speakersZx7Gallery2Mobile from './assets/product-zx7-speaker/mobile/image-gallery-2.jpg';
-import speakersZx7Gallery2Tablet from './assets/product-zx7-speaker/tablet/image-gallery-2.jpg';
-import speakersZx7Gallery2Desktop from './assets/product-zx7-speaker/desktop/image-gallery-2.jpg';
+import speakersZx7Gallery2Mobile from '/assets/product-zx7-speaker/mobile/image-gallery-2.jpg';
+import speakersZx7Gallery2Tablet from '/assets/product-zx7-speaker/tablet/image-gallery-2.jpg';
+import speakersZx7Gallery2Desktop from '/assets/product-zx7-speaker/desktop/image-gallery-2.jpg';
 
-import speakersZx7Gallery3Mobile from './assets/product-zx7-speaker/mobile/image-gallery-3.jpg';
-import speakersZx7Gallery3Tablet from './assets/product-zx7-speaker/tablet/image-gallery-3.jpg';
-import speakersZx7Gallery3Desktop from './assets/product-zx7-speaker/desktop/image-gallery-3.jpg';
+import speakersZx7Gallery3Mobile from '/assets/product-zx7-speaker/mobile/image-gallery-3.jpg';
+import speakersZx7Gallery3Tablet from '/assets/product-zx7-speaker/tablet/image-gallery-3.jpg';
+import speakersZx7Gallery3Desktop from '/assets/product-zx7-speaker/desktop/image-gallery-3.jpg';
 
-import speakersZx9Gallery1Mobile from './assets/product-zx9-speaker/mobile/image-gallery-1.jpg';
-import speakersZx9Gallery1Tablet from './assets/product-zx9-speaker/tablet/image-gallery-1.jpg';
-import speakersZx9Gallery1Desktop from './assets/product-zx9-speaker/desktop/image-gallery-1.jpg';
+import speakersZx9Gallery1Mobile from '/assets/product-zx9-speaker/mobile/image-gallery-1.jpg';
+import speakersZx9Gallery1Tablet from '/assets/product-zx9-speaker/tablet/image-gallery-1.jpg';
+import speakersZx9Gallery1Desktop from '/assets/product-zx9-speaker/desktop/image-gallery-1.jpg';
 
-import speakersZx9Gallery2Mobile from './assets/product-zx9-speaker/mobile/image-gallery-2.jpg';
-import speakersZx9Gallery2Tablet from './assets/product-zx9-speaker/tablet/image-gallery-2.jpg';
-import speakersZx9Gallery2Desktop from './assets/product-zx9-speaker/desktop/image-gallery-2.jpg';
+import speakersZx9Gallery2Mobile from '/assets/product-zx9-speaker/mobile/image-gallery-2.jpg';
+import speakersZx9Gallery2Tablet from '/assets/product-zx9-speaker/tablet/image-gallery-2.jpg';
+import speakersZx9Gallery2Desktop from '/assets/product-zx9-speaker/desktop/image-gallery-2.jpg';
 
-import speakersZx9Gallery3Mobile from './assets/product-zx9-speaker/mobile/image-gallery-3.jpg';
-import speakersZx9Gallery3Tablet from './assets/product-zx9-speaker/tablet/image-gallery-3.jpg';
-import speakersZx9Gallery3Desktop from './assets/product-zx9-speaker/desktop/image-gallery-3.jpg';
+import speakersZx9Gallery3Mobile from '/assets/product-zx9-speaker/mobile/image-gallery-3.jpg';
+import speakersZx9Gallery3Tablet from '/assets/product-zx9-speaker/tablet/image-gallery-3.jpg';
+import speakersZx9Gallery3Desktop from '/assets/product-zx9-speaker/desktop/image-gallery-3.jpg';
 
 // shared
 
-import headphonesXx99MarkOneSharedMobile from './assets/shared/mobile/image-xx99-mark-one-headphones.jpg';
-import headphonesXx99MarkOneSharedTablet from './assets/shared/tablet/image-xx99-mark-one-headphones.jpg';
-import headphonesXx99MarkOneSharedDesktop from './assets/shared/desktop/image-xx99-mark-one-headphones.jpg';
+import headphonesXx99MarkOneSharedMobile from '/assets/shared/mobile/image-xx99-mark-one-headphones.jpg';
+import headphonesXx99MarkOneSharedTablet from '/assets/shared/tablet/image-xx99-mark-one-headphones.jpg';
+import headphonesXx99MarkOneSharedDesktop from '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg';
 
-import headphonesXx59SharedMobile from './assets/shared/mobile/image-xx59-headphones.jpg';
-import headphonesXx59SharedTablet from './assets/shared/tablet/image-xx59-headphones.jpg';
-import headphonesXx59SharedDesktop from './assets/shared/desktop/image-xx59-headphones.jpg';
+import headphonesXx59SharedMobile from '/assets/shared/mobile/image-xx59-headphones.jpg';
+import headphonesXx59SharedTablet from '/assets/shared/tablet/image-xx59-headphones.jpg';
+import headphonesXx59SharedDesktop from '/assets/shared/desktop/image-xx59-headphones.jpg';
 
-import speakerZx9SharedMobile from './assets/shared/mobile/image-zx9-speaker.jpg';
-import speakerZx9SharedTablet from './assets/shared/tablet/image-zx9-speaker.jpg';
-import speakerZx9SharedDesktop from './assets/shared/desktop/image-zx9-speaker.jpg';
+import speakerZx9SharedMobile from '/assets/shared/mobile/image-zx9-speaker.jpg';
+import speakerZx9SharedTablet from '/assets/shared/tablet/image-zx9-speaker.jpg';
+import speakerZx9SharedDesktop from '/assets/shared/desktop/image-zx9-speaker.jpg';
 
-import headphonesXx99MarkTwoSharedMobile from './assets/shared/mobile/image-xx99-mark-two-headphones.jpg';
-import headphonesXx99MarkTwoSharedTablet from './assets/shared/tablet/image-xx99-mark-two-headphones.jpg';
-import headphonesXx99MarkTwoSharedDesktop from './assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
+import headphonesXx99MarkTwoSharedMobile from '/assets/shared/mobile/image-xx99-mark-two-headphones.jpg';
+import headphonesXx99MarkTwoSharedTablet from '/assets/shared/tablet/image-xx99-mark-two-headphones.jpg';
+import headphonesXx99MarkTwoSharedDesktop from '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
 
-import speakerZx7SharedMobile from './assets/shared/mobile/image-zx7-speaker.jpg';
-import speakerZx7SharedTablet from './assets/shared/tablet/image-zx7-speaker.jpg';
-import speakerZx7SharedDesktop from './assets/shared/desktop/image-zx7-speaker.jpg';
+import speakerZx7SharedMobile from '/assets/shared/mobile/image-zx7-speaker.jpg';
+import speakerZx7SharedTablet from '/assets/shared/tablet/image-zx7-speaker.jpg';
+import speakerZx7SharedDesktop from '/assets/shared/desktop/image-zx7-speaker.jpg';
 
 export default [
   {

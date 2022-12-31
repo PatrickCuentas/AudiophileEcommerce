@@ -9,15 +9,15 @@ import App from './App';
 import './index.css';
 import 'animate.css';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <CartProvider>
     <NavbarProvider>
-      <BrowserRouter>
+      <Router>
         <App />
         <Toaster />
-      </BrowserRouter>
+      </Router>
     </NavbarProvider>
   </CartProvider>
 );

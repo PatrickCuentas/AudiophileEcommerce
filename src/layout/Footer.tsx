@@ -5,7 +5,7 @@ import {
   AiOutlineInstagram,
 } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
-import Logo from '../../assets/shared/desktop/logo.svg';
+import Logo from '/assets/shared/desktop/logo.svg';
 
 export default function Footer() {
   const goToTop = () => window.scrollTo(0, 0);

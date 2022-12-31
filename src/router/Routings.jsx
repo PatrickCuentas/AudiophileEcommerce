@@ -10,7 +10,7 @@ import ProductScreen from '../screens/product/ProductScreen.tsx';
 
 import { Route, Routes } from 'react-router';
 
-export default function AppRouter() {
+export default function Routings() {
   return (
     <Routes>
       <Route path="/" element={<LayoutScreen />}>
