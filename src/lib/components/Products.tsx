@@ -19,7 +19,7 @@ const { type } = getDeviceType();
 
 export default function Products() {
   return (
-    <div className="pb-[170px] md:pb-[96px]">
+    <div className="mb-[170px] md:mb-[100px] lg:mb-[200px]">
       <div className="flex flex-col gap-[24px] text-center">
         <SpeakerZX9 />
         <SpeakerZX7 />

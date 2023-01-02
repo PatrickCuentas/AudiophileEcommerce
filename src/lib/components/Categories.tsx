@@ -30,7 +30,9 @@ function Categories() {
   return (
     <div
       className={`${
-        !pathname.includes('category') && 'pt-[90px] pb-[120px] md:pt-[140px]'
+        pathname === '/'
+          ? 'mb-[120px] mt-[120px] md:mt-[180px] md:mb-[100px] lg:mt-[200px] lg:mb-[170px]'
+          : 'mb-[120px]'
       }`}
     >
       <div className="flex flex-col gap-[60px] md:flex-row md:items-center md:justify-center md:gap-[10px]">

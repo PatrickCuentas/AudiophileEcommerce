@@ -18,7 +18,6 @@ import {
 } from '../../utils/fetchProducts';
 import { getDeviceType } from '../../utils/windowSize';
 import { formatPrice } from '../../utils/priceProducts';
-import Main from '../../layout/Main';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
@@ -52,7 +51,7 @@ export default function ProductScreen() {
   if (product === null) return <div />;
 
   return (
-    <Main>
+    <main className="mx-auto max-w-[30rem] md:max-w-[68.75rem]">
       <div className="px-[24px] pt-[16px] md:px-[39px] md:pt-[33px]">
         <div className="mb-[88px] flex flex-col flex-wrap gap-[88px]">
           <div>
@@ -69,14 +68,12 @@ export default function ProductScreen() {
             <ProductComponents product={product} />
           </div>
         </div>
-        <div className="flex flex-col flex-wrap gap-[120px]">
-          <Gallery product={product} />
-          <RecommendedProducts product={product} />
-          <Categories />
-          <AboutUs />
-        </div>
+        <Gallery product={product} />
+        <RecommendedProducts product={product} />
+        <Categories />
+        <AboutUs />
       </div>
-    </Main>
+    </main>
   );
 }
 
@@ -264,7 +261,7 @@ const Gallery = (props: { product: ProductFullProps }) => {
   });
 
   return (
-    <div className="grid-gallery flex flex-col gap-[20px] md:grid">
+    <div className="grid-gallery mb-[120px] flex flex-col gap-[20px] md:grid">
       {paths.map((path, i) => {
         return (
           <div
@@ -296,8 +293,8 @@ const RecommendedProducts = ({ product }: { product: ProductFullProps }) => {
   });
 
   return (
-    <div className="text-center">
-      <h3 className="mb-[40px] text-[24px] font-bold leading-[0.86px] md:text-[32px]">
+    <div className="mb-[200px]">
+      <h3 className="mb-[40px] text-center text-[24px] font-bold leading-[0.86px] md:text-[32px]">
         YOU MAY ALSO LIKE
       </h3>
       <div className="flex flex-col gap-[56px] md:flex-row md:gap-[11px]">

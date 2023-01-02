@@ -14,7 +14,7 @@ export default function AboutUs() {
       : bestGearSharedDesktop;
 
   return (
-    <div className="text-center lg:flex lg:flex-row-reverse lg:items-center lg:gap-[125px]">
+    <div className="lg:mb[200px] mb-[70px] text-center md:mb-[100px] lg:flex lg:flex-row-reverse lg:items-center lg:gap-[125px]">
       <div className="mb-[63px] lg:mb-0">
         <img
           src={imgUrl}

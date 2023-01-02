@@ -61,9 +61,6 @@ export default function CheckoutScreen() {
   });
 
   useEffect(() => {
-    // if (cartProducts.length <= 0) {
-    //   navigate('/');
-    // }
     document.body.style.background = '#F2F2F2';
     return () => {
       document.body.style.background = '#ffffff';
