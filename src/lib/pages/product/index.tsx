@@ -20,8 +20,11 @@ import {
 } from '../../utils/fetchProducts';
 import { formatPrice } from '../../utils/priceProducts';
 import CheckCircle from '/assets/CheckCircle.svg';
+import { PUBLIC_DNS } from 'lib/globals.js';
 
 const INITIAL_QUANTITY = 1;
+const PREFIX =
+  import.meta.env.MODE === 'production' ? import.meta.env.VITE_PUBLIC_DNS : '';
 
 export default function ProductScreen() {
   const navigate = useNavigate();
@@ -29,10 +32,8 @@ export default function ProductScreen() {
   const query = findBySlugQuery(productName as string);
   const { addProduct } = useContext(CartContext);
   const [quantity, setQuantity] = useState(INITIAL_QUANTITY);
-  const { data, error, isLoading } = useSWR(
-    `http://localhost:3000/api/products${query}`,
-    fetcher
-  );
+  const key = `${PUBLIC_DNS}/api/products${query}`;
+  const { data, error, isLoading } = useSWR(key, fetcher);
   const product = data?.docs[0];
 
   const addToCart = () => {
@@ -88,18 +89,16 @@ export default function ProductScreen() {
                 <picture>
                   <source
                     media="(min-width: 1024px)"
-                    srcSet={product?.image?.desktop?.url}
+                    srcSet={PREFIX + product?.image?.desktop?.url}
                   />
                   <source
                     media="(min-width: 768px)"
-                    srcSet={product?.image?.tablet?.url}
+                    srcSet={PREFIX + product?.image?.tablet?.url}
                   />
                   <img
                     className="h-full w-full md:object-cover"
-                    src={product?.image?.mobile?.url}
+                    src={PREFIX + product?.image?.mobile?.url}
                     alt={product?.slug}
-                    // width-="174"
-                    // height="383"
                   />
                 </picture>
               </div>
@@ -209,15 +208,15 @@ export default function ProductScreen() {
                   <picture>
                     <source
                       media="(min-width: 1024px)"
-                      srcSet={image.desktop.url}
+                      srcSet={PREFIX + image.desktop.url}
                     />
                     <source
                       media="(min-width: 768px)"
-                      srcSet={image.tablet.url}
+                      srcSet={PREFIX + image.tablet.url}
                     />
                     <img
                       className="min-h-full min-w-full rounded-[8px] object-cover"
-                      src={image.mobile.url}
+                      src={PREFIX + image.mobile.url}
                       alt={product?.name + 'image'}
                     />
                   </picture>

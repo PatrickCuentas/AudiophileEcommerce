@@ -2,6 +2,9 @@ import PrimaryButton from './PrimaryButton';
 import { ProductProps } from '../interfaces/product';
 import { Link } from 'react-router-dom';
 
+const PREFIX =
+  import.meta.env.MODE === 'production' ? import.meta.env.VITE_PUBLIC_DNS : '';
+
 export default function Product({ product }: { product: ProductProps }) {
   const { slug, name, description, image, isNew, position } = product;
   const flexDirection =
@@ -13,11 +16,17 @@ export default function Product({ product }: { product: ProductProps }) {
     >
       <div className="mb-[32px] lg:flex-1">
         <picture>
-          <source media="(min-width: 1024px)" srcSet={image.desktop.url} />
-          <source media="(min-width: 768px)" srcSet={image.tablet.url} />
+          <source
+            media="(min-width: 1024px)"
+            srcSet={PREFIX + image.desktop.url}
+          />
+          <source
+            media="(min-width: 768px)"
+            srcSet={PREFIX + image.tablet.url}
+          />
           <img
             className="min-w-full rounded-[8px]"
-            src={image.mobile.url}
+            src={PREFIX + image.mobile.url}
             alt={product?.name + 'image'}
           />
         </picture>
