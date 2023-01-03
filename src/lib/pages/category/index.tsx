@@ -7,19 +7,18 @@ import Categories from 'lib/components/Categories';
 import Product from 'lib/components/Product';
 import fetcher from 'lib/swr/fetcher';
 import { findByCategoryQuery } from 'lib/utils/fetchProducts';
+import { PUBLIC_DNS } from 'lib/globals';
 
 export default function CategoryScreen() {
   const params = useParams();
   const { categoryName } = params;
   const query = findByCategoryQuery(categoryName as string);
-  const { data, error, isLoading } = useSWR(
-    `http://localhost:3000/api/products${query}&sort=-new`,
-    fetcher
-  );
+  const key = `${PUBLIC_DNS}/api/products${query}&sort=-new`;
+  const { data, error, isLoading } = useSWR(key, fetcher);
   const products = data?.docs;
-  console.log(products);
 
   if (isLoading || products === undefined) return <div />;
+  console.log(products);
 
   return (
     <>
