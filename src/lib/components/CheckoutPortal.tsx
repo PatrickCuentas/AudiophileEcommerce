@@ -63,12 +63,10 @@ function CheckoutPortal() {
 }
 
 function Container() {
-  const { cartProducts, totalPrice } = useContext(CartContext);
-  const firstProduct = cartProducts[0];
+  const { products, total } = useContext(CartContext);
+  const firstProduct = products[0];
   const SHIPPING_PRICE = 50;
-  const GRAND_TOTAL = formatPrice(
-    parseInt(String(+totalPrice + SHIPPING_PRICE))
-  );
+  const GRAND_TOTAL = formatPrice(parseInt(String(+total + SHIPPING_PRICE)));
 
   return (
     <div className="flex min-w-[330px] flex-col gap-[24px] rounded-[8px] bg-white p-[32px] shadow-2xl md:min-w-[540px] md:p-[48px]">
@@ -90,7 +88,7 @@ function Container() {
           <CartItem product={firstProduct} />
           <hr className="mt-[12px] h-[2px] w-full bg-[rgba(0,0,0,0.08)] " />
           <p className="text-[12px] font-bold tracking-[-0.21px] text-[rgba(0,0,0,0.5)]">
-            and {cartProducts.length - 1} other item(s)
+            and {products.length - 1} other item(s)
           </p>
         </div>
         <div className="h-[90px] rounded-b-[8px] bg-[#000000] pl-[24px] pt-[15px] pb-[19px] md:flex md:h-[140px] md:flex-1 md:flex-col md:items-start md:justify-center md:pt-0">
@@ -114,9 +112,6 @@ function Container() {
 function CartItem(props: { product: CartItemProps }) {
   const product: CartItemProps = props.product;
 
-  const shortName = getShortName(product.slug || '');
-  const priceFormated = formatPrice(product.price);
-
   return (
     <div className="flex items-start justify-between gap-[16px]">
       <div className="flex items-center gap-[16px]">
@@ -128,9 +123,9 @@ function CartItem(props: { product: CartItemProps }) {
           />
         </div>
         <div className="min-w-[75px]">
-          <p className="text-[15px] font-bold">{shortName}</p>
+          <p className="text-[15px] font-bold">{product.shortName}</p>
           <p className="text-[14px] font-bold text-[rgba(0,0,0,0.5)]">
-            $ {priceFormated}
+            $ {formatPrice(product.total)}
           </p>
         </div>
       </div>
