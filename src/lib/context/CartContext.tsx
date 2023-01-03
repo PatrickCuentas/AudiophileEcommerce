@@ -1,32 +1,43 @@
 import { createContext, useState } from 'react';
+import { CartItemProps } from 'lib/interfaces/cart';
 
-interface CartItemProps {
-  id: number | string;
-  name: string;
-  slug: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+type CartContent = {
+  products: CartItemProps[];
+  setProducts: (value: CartItemProps[]) => void;
+  total: number;
+  getTotal: () => number;
+  setTotal: (value: number) => void;
+  setProduct: (product: CartItemProps, operation: string) => void;
+  addProduct: (product: CartItemProps, quantity: number) => void;
+  removeAll: () => void;
+  removeOne: (product: CartItemProps) => void;
+  getProductStock: (productId: number | string) => number;
+};
 
-export const CartContext = createContext<any>([]);
+export const CartContext = createContext<CartContent>({
+  products: [],
+  setProducts: () => {},
+  total: 0,
+  getTotal: () => 0,
+  setTotal: () => {},
+  setProduct: () => {},
+  addProduct: () => {},
+  removeAll: () => {},
+  removeOne: () => {},
+  getProductStock: () => 0,
+});
 
 export const CartProvider = ({ children }) => {
-  const [cartProducts, setCartProducts] = useState<CartItemProps[]>([]);
-  const [totalPrice, setTotalPrice] = useState<number | string>(0);
+  const [products, setProducts] = useState<CartItemProps[]>([]);
+  const [total, setTotal] = useState<number>(0);
 
-  const getProductStock = (productId) => {
-    // get stock from api
-    return 10;
-  };
-
-  const addProductToCart = (product: CartItemProps, quantity: number) => {
-    const productExists = cartProducts.find(
+  const addProduct = (product: CartItemProps, quantity: number) => {
+    const productExists = products.find(
       (p: CartItemProps) => p.id === product.id
     );
 
     if (productExists) {
-      const newCartProducts = cartProducts.map((p: CartItemProps) => {
+      const newProducts = products.map((p: CartItemProps) => {
         if (p.id === product.id) {
           const newQuantity = p.quantity + quantity;
           return {
@@ -39,31 +50,13 @@ export const CartProvider = ({ children }) => {
         }
         return p;
       });
-      setCartProducts(newCartProducts);
-    } else setCartProducts([...cartProducts, { ...product, quantity }]);
+      setProducts(newProducts);
+    } else setProducts([...products, { ...product, quantity }]);
   };
 
-  const removeAllProducts = () => {
-    if (cartProducts.length === 0) return;
-    setCartProducts([]);
-  };
-
-  const removeProductFromCart = (product: CartItemProps) => {
-    return cartProducts.filter((p: CartItemProps) => p.id !== product.id);
-  };
-
-  const getTotalPrice = () => {
-    return cartProducts.reduce((acc, curr) => {
-      return acc + curr.price * curr.quantity;
-    }, 0);
-  };
-
-  const changeCartItemQuantity = (
-    product: CartItemProps,
-    operation: string
-  ) => {
-    let newCartProducts = Array.from(cartProducts);
-    const productIndex = cartProducts.findIndex(
+  const setProduct = (product: CartItemProps, operation: string) => {
+    let newProducts = Array.from(products);
+    const productIndex = products.findIndex(
       (p: CartItemProps) => p.id === product.id
     );
 
@@ -73,7 +66,7 @@ export const CartProvider = ({ children }) => {
       case '+': {
         if (product.quantity >= 10) break;
 
-        newCartProducts[productIndex] = {
+        newProducts[productIndex] = {
           ...product,
           quantity: product.quantity + 1,
         };
@@ -81,9 +74,9 @@ export const CartProvider = ({ children }) => {
       }
       case '-': {
         if (product.quantity <= 1) {
-          newCartProducts = removeProductFromCart(product);
+          newProducts = removeOne(product);
         } else {
-          newCartProducts[productIndex] = {
+          newProducts[productIndex] = {
             ...product,
             quantity: product.quantity - 1,
           };
@@ -96,20 +89,40 @@ export const CartProvider = ({ children }) => {
       }
     }
 
-    setCartProducts(newCartProducts);
+    setProducts(newProducts);
+  };
+
+  const removeAll = () => {
+    if (products.length === 0) return;
+    setProducts([]);
+  };
+
+  const removeOne = (product: CartItemProps) => {
+    return products.filter((p: CartItemProps) => p.id !== product.id);
+  };
+
+  const getTotal = () => {
+    return products.reduce((acc, curr) => {
+      return acc + curr.total * curr.quantity;
+    }, 0);
+  };
+
+  const getProductStock = (productId) => {
+    return 10;
   };
 
   return (
     <CartContext.Provider
       value={{
-        cartProducts,
-        totalPrice,
-        setCartProducts,
-        addProductToCart,
-        removeAllProducts,
-        getTotalPrice,
-        setTotalPrice,
-        changeCartItemQuantity,
+        products,
+        setProducts,
+        total,
+        getTotal,
+        setTotal,
+        setProduct,
+        addProduct,
+        removeAll,
+        removeOne,
         getProductStock,
       }}
     >

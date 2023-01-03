@@ -1,26 +1,20 @@
 import bestGearSharedMobile from '/assets/shared/mobile/image-best-gear.jpg';
 import bestGearSharedTablet from '/assets/shared/tablet/image-best-gear.jpg';
 import bestGearSharedDesktop from '/assets/shared/desktop/image-best-gear.jpg';
-import { getDeviceType } from '../utils/windowSize';
-
-const { type } = getDeviceType();
 
 export default function AboutUs() {
-  const imgUrl =
-    type === 'mobile'
-      ? bestGearSharedMobile
-      : type === 'tablet'
-      ? bestGearSharedTablet
-      : bestGearSharedDesktop;
-
   return (
-    <div className="lg:mb[200px] mb-[70px] text-center md:mb-[100px] lg:flex lg:flex-row-reverse lg:items-center lg:gap-[125px]">
+    <div className="mb-[70px] text-center md:mb-[100px] lg:mb-[200px] lg:flex lg:flex-row-reverse lg:items-center lg:gap-[125px]">
       <div className="mb-[63px] lg:mb-0">
-        <img
-          src={imgUrl}
-          alt=""
-          className="h-[320px] min-w-full rounded-[8px] object-cover lg:h-auto lg:min-w-0"
-        />
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={bestGearSharedDesktop} />
+          <source media="(min-width: 768px)" srcSet={bestGearSharedTablet} />
+          <img
+            className="h-[320px] min-w-full rounded-[8px] object-cover lg:h-auto lg:min-w-0"
+            src={bestGearSharedMobile}
+            alt={'image'}
+          />
+        </picture>
       </div>
       <div className="lg:text-start">
         <h2 className="mx-auto max-w-[20ch] text-[28px] font-bold tracking-[1px] text-black md:text-[40px] md:leading-[44px] md:tracking-[1.43px]">

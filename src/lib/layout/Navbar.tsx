@@ -1,21 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
 import Hamburger from 'hamburger-react';
+import { v4 as uuidv4 } from 'uuid';
+import { CartContext } from '../context/CartContext';
+import { NavbarContext } from '../context/NavbarContext';
+import Category from '../components/Category';
 import CartPortal from '../components/CartPortal';
-
-import { CartContext } from '../context/CartContext.jsx';
-import { NavbarContext } from '../context/NavbarContext.jsx';
-
+import { CategoryProps } from '../interfaces/category';
 import Logo from '/assets/shared/desktop/logo.svg';
-import { getDeviceType } from '../utils/windowSize.js';
-
 import headphonesXx99MarkOneRemoveBgMobile from '/assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview-removebg.png';
 import speakerZx9RemoveBgMobile from '/assets/product-zx9-speaker/mobile/image-category-page-preview-removebg.png';
 import earphonesYx1RemoveBgMobile from '/assets/product-yx1-earphones/mobile/image-category-page-preview-removebg.png';
-import Category from '../components/Category';
-import { CategoryProps } from '../interfaces/category';
-import { v4 as uuidv4 } from 'uuid';
 
 const categories = [
   {
@@ -36,10 +31,9 @@ const categories = [
 ];
 
 export default function Navbar() {
-  const { type } = getDeviceType();
-  const [isNavbarOpen, setIsNavbarOpen, toggleNavbar] =
+  const { isNavbarOpen, setIsNavbarOpen, toggleNavbar } =
     useContext<any>(NavbarContext);
-  const { cartProducts, setCartProducts } = useContext(CartContext);
+  const { products, setProducts } = useContext(CartContext);
   const [pingAnimation, setPingAnimation] = useState(false);
 
   useEffect(() => {
@@ -64,7 +58,7 @@ export default function Navbar() {
     return () => {
       clearTimeout(timer);
     };
-  }, [cartProducts, setCartProducts]);
+  }, [products, setProducts]);
 
   const border = isNavbarOpen ? '1px' : '0px';
   const animation = 'animate__animated animate__slideInDown';
@@ -77,7 +71,7 @@ export default function Navbar() {
         className={`relative z-10 bg-[#191919]  px-[24px] py-[32px] ${borderStyle}`}
       >
         <div className="flex h-[48px] items-center justify-between lg:mx-auto lg:max-w-[1100px]">
-          {type !== 'desktop' && (
+          <div className="lg:hidden">
             <Hamburger
               toggled={isNavbarOpen}
               toggle={setIsNavbarOpen}
@@ -86,7 +80,7 @@ export default function Navbar() {
               direction="right"
               distance="md"
             />
-          )}
+          </div>
 
           <div className="flex w-full justify-center md:ml-[42px] md:justify-start lg:ml-0 lg:w-auto">
             <Link to="/">
@@ -94,8 +88,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {type === 'desktop' && (
-            <ul className="flex flex-col gap-[16px] text-[13px] tracking-[2px] text-white md:flex-row">
+          <div className="hidden lg:block">
+            <ul className="flex  flex-col gap-[16px] text-[13px] tracking-[2px] text-white md:flex-row ">
               <li>
                 <NavLink
                   to="/"
@@ -137,7 +131,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
             </ul>
-          )}
+          </div>
           {document && <CartPortal animation={pingAnimation} />}
         </div>
       </div>
@@ -152,7 +146,10 @@ export default function Navbar() {
                 key={uuidv4()}
                 name={category.name}
                 path={category.path}
-                onClick={() => toggleNavbar()}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  toggleNavbar();
+                }}
               />
             ))}
           </div>

@@ -1,19 +1,17 @@
 import { useEffect, useState, useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import { Modal } from 'react-overlays';
-import { getDeviceType } from '../utils/windowSize';
-import { CartItemProps } from '../interfaces/cart';
-import PrimaryButton from './PrimaryButton';
-import { formatPrice } from '../utils/priceProducts';
-import { getShortName } from '../utils/fetchProducts';
 import { IconContext } from 'react-icons';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { v4 as uuidv4 } from 'uuid';
+import { Modal } from 'react-overlays';
+import { CartContext } from '../context/CartContext';
+import PrimaryButton from './PrimaryButton';
+import { CartItemProps } from '../interfaces/cart';
+import { formatPrice } from '../utils/priceProducts';
 
 function CartPortal({ animation }) {
   const [show, setShow] = useState(false);
-  const { type } = getDeviceType();
 
   const renderBackdrop = (props: any) => (
     <div
@@ -56,9 +54,7 @@ function CartPortal({ animation }) {
           boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)',
           marginTop: '150px',
         }}
-        className={`${
-          type === 'mobile' ? 'centered-axis-cart' : 'right-axis-cart'
-        }`}
+        className="centered-axis-cart md:right-axis-cart"
         show={show}
         renderBackdrop={renderBackdrop}
         onHide={() => setShow(false)}
@@ -71,27 +67,45 @@ function CartPortal({ animation }) {
 }
 
 function Cart({ setShow }) {
-  const {
-    cartProducts,
-    setCartProducts,
-    removeAllProducts,
-    getTotalPrice,
-    totalPrice,
-    setTotalPrice,
-  } = useContext(CartContext);
+  const { products, setProducts, removeAll, getTotal, total, setTotal } =
+    useContext(CartContext);
 
   useEffect(() => {
-    const totalProductsPrice = getTotalPrice();
-    setTotalPrice(totalProductsPrice);
-  }, [cartProducts, setCartProducts]);
+    const totalProductsPrice = getTotal();
+    setTotal(totalProductsPrice);
+  }, [products, setProducts]);
+
+  const beforeCheckout = () => {
+    if (products?.length === 0) {
+      toast.error(
+        (t) => {
+          return (
+            <div
+              className="flex cursor-pointer items-center gap-[16px]"
+              onClick={() => toast.dismiss(t.id)}
+            >
+              <p className="text-[18px] font-bold tracking-[1.29px] text-[#D87D4A]">
+                Your cart is empty
+              </p>
+            </div>
+          );
+        },
+        {
+          position: 'top-right',
+          duration: 3000,
+        }
+      );
+    }
+    setShow(false);
+  };
 
   return (
     <div className="flex h-[490px] min-w-[330px] flex-col gap-[32px] rounded-[8px] bg-white px-[28px] py-[32px] shadow-2xl md:min-w-[380px]">
       <div className="flex justify-between">
         <h3 className="text-[18px] font-bold tracking-[1.29px]">
-          CART ({cartProducts?.length})
+          CART ({products?.length})
         </h3>
-        <button onClick={removeAllProducts}>
+        <button onClick={removeAll}>
           <span className="text-[15px] font-medium text-[rgba(0,0,0,0.5)] underline decoration-[rgba(0,0,0,0.5)]">
             Remove all
           </span>
@@ -101,9 +115,9 @@ function Cart({ setShow }) {
         id="products"
         className="flex h-[240px] flex-col gap-[24px] overflow-auto"
       >
-        {Array.isArray(cartProducts) &&
-          cartProducts.map((product: CartItemProps) => (
-            <CartItem key={product.name} product={product} />
+        {Array.isArray(products) &&
+          products.map((product: CartItemProps) => (
+            <CartItem key={uuidv4()} product={product} />
           ))}
       </div>
       <div className="min-h-[100px]">
@@ -111,34 +125,12 @@ function Cart({ setShow }) {
           <p className="text-[15px] font-medium text-[rgba(0,0,0,0.5)]">
             TOTAL
           </p>
-          <p className="text-[18px] font-bold">$ {formatPrice(totalPrice)}</p>
+          <p className="text-[18px] font-bold">$ {formatPrice(total)}</p>
         </div>
-        <ConditionalLink to="/checkout" condition={cartProducts?.length > 0}>
+        <ConditionalLink to="/checkout" condition={products?.length > 0}>
           <PrimaryButton
             className="h-[48px] w-full bg-[#D87D4A]"
-            onClick={() => {
-              if (cartProducts?.length === 0) {
-                toast.error(
-                  (t) => {
-                    return (
-                      <div
-                        className="flex cursor-pointer items-center gap-[16px]"
-                        onClick={() => toast.dismiss(t.id)}
-                      >
-                        <p className="text-[18px] font-bold tracking-[1.29px] text-[#D87D4A]">
-                          Your cart is empty
-                        </p>
-                      </div>
-                    );
-                  },
-                  {
-                    position: 'top-right',
-                    duration: 3000,
-                  }
-                );
-              }
-              setShow(false);
-            }}
+            onClick={beforeCheckout}
           >
             <span className="text-[13px] font-bold text-white">CHECKOUT</span>
           </PrimaryButton>
@@ -160,10 +152,7 @@ function ConditionalLink({ children, condition, ...props }) {
 
 function CartItem(props: { product: CartItemProps }) {
   const product: CartItemProps = props.product;
-  const { changeCartItemQuantity } = useContext(CartContext);
-
-  const shortName = getShortName(product.slug || '');
-  const priceFormated = formatPrice(product.price);
+  const { setProduct } = useContext(CartContext);
 
   return (
     <div className="flex items-center justify-between gap-[16px] pr-[10px]">
@@ -175,15 +164,15 @@ function CartItem(props: { product: CartItemProps }) {
         />
       </div>
       <div className="min-w-[75px]">
-        <p className="text-[15px] font-bold">{shortName}</p>
+        <p className="text-[15px] font-bold">{product.shortName}</p>
         <p className="text-[14px] font-bold text-[rgba(0,0,0,0.5)]">
-          $ {priceFormated}
+          $ {formatPrice(product.total)}
         </p>
       </div>
       <div className="inline-flex items-center bg-[#F1F1F1]">
         <button
           className="py-[6px] px-[12px]"
-          onClick={() => changeCartItemQuantity(product, '-')}
+          onClick={() => setProduct(product, '-')}
         >
           <span className="text-[13px] font-bold tracking-[1px] text-[rgba(0,0,0,0.25)]">
             -
@@ -196,7 +185,7 @@ function CartItem(props: { product: CartItemProps }) {
         </div>
         <button
           className="py-[6px] px-[12px]"
-          onClick={() => changeCartItemQuantity(product, '+')}
+          onClick={() => setProduct(product, '+')}
         >
           <span className="text-[13px] font-bold tracking-[1px] text-[rgba(0,0,0,0.25)]">
             +

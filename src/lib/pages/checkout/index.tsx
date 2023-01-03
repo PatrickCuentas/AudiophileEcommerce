@@ -1,64 +1,19 @@
 import { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router';
-import CheckoutPortal from '../components/CheckoutPortal';
-
-import { CartContext } from '../context/CartContext';
-
-import useRadioButtons from '../hooks/useRadioButtons';
-
-import { getShortName } from '../utils/fetchProducts';
-import { formatPrice } from '../utils/priceProducts';
-
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-
-interface CartItemProps {
-  id: number | string;
-  name: string;
-  slug: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { v4 as uuidv4 } from 'uuid';
+import initFormik from '../../hooks/useMyFormik';
+import { CartContext } from '../../context/CartContext';
+import Input from 'lib/components/Input';
+import CheckoutPortal from '../../components/CheckoutPortal';
+import useRadioButtons from '../../hooks/useRadioButtons';
+import { CartItemProps } from 'lib/interfaces/cart';
+import { formatPrice } from '../../utils/priceProducts';
 
 export default function CheckoutScreen() {
   const navigate = useNavigate();
-  const { cartProducts, totalPrice } = useContext(CartContext);
+  const formik = initFormik();
+  const { products, total } = useContext(CartContext);
   const [paymentValue, paymentInputProps] = useRadioButtons('payment', 'money');
-
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      zip: '',
-      city: '',
-      country: '',
-      eMoneyNumber: '',
-      eMoneyPin: '',
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().required('Name is required'),
-      email: Yup.string().email('Wrong format').required('Email is required'),
-      phone: Yup.string().required('Phone is required'),
-      address: Yup.string().required('Address is required'),
-      zip: Yup.string().required('Zip is required'),
-      city: Yup.string().required('City is required'),
-      country: Yup.string().required('Country is required'),
-    }),
-    onSubmit: (values) => {
-      new Promise((resolve) => setTimeout(resolve, 1000))
-        .then((res) => {})
-        .catch((err) => {})
-        .finally(() => {
-          formik.resetForm();
-          formik.setTouched({});
-          formik.setErrors({});
-          formik.setSubmitting(false);
-        });
-    },
-  });
 
   useEffect(() => {
     document.body.style.background = '#F2F2F2';
@@ -245,7 +200,7 @@ export default function CheckoutScreen() {
             </div>
           </section>
           <section className=" rounded-[8px] bg-white p-[24px] [flex-basis:33.33%]">
-            <Summary products={cartProducts} totalPrice={totalPrice} />
+            <Summary products={products} total={total} />
           </section>
         </div>
       </div>
@@ -298,14 +253,12 @@ function SearchResult({ paymentValue, paymentInputProps }) {
   );
 }
 
-function Summary(props: { products: CartItemProps[]; totalPrice: number }) {
-  const { products, totalPrice } = props;
-  const TOTAL_PRICE = formatPrice(totalPrice);
+function Summary(props: { products: CartItemProps[]; total: number }) {
+  const { products, total } = props;
+  const TOTAL_PRICE = formatPrice(total);
   const SHIPPING_PRICE = 50;
-  const VAT = formatPrice(parseInt(String(+totalPrice * 0.2)));
-  const GRAND_TOTAL = formatPrice(
-    parseInt(String(+totalPrice + SHIPPING_PRICE))
-  );
+  const VAT = formatPrice(parseInt(String(+total * 0.2)));
+  const GRAND_TOTAL = formatPrice(parseInt(String(+total + SHIPPING_PRICE)));
 
   return (
     <div className="flex flex-col gap-[32px]">
@@ -313,7 +266,7 @@ function Summary(props: { products: CartItemProps[]; totalPrice: number }) {
       <div id="products" className="flex flex-col gap-[24px]">
         {Array.isArray(products) &&
           products.map((product: CartItemProps) => (
-            <CartItem key={product.name} product={product} />
+            <CartItem key={uuidv4()} product={product} />
           ))}
       </div>
       <div>
@@ -349,12 +302,7 @@ function Label({ label, children, ...props }) {
   );
 }
 
-function CartItem(props: { product: CartItemProps }) {
-  const product: CartItemProps = props.product;
-
-  const shortName = getShortName(product.slug);
-  const priceFormated = formatPrice(product.price);
-
+function CartItem({ product }: { product: CartItemProps }) {
   return (
     <div className="flex items-start justify-between gap-[16px]">
       <div className="flex items-center gap-[16px]">
@@ -366,43 +314,15 @@ function CartItem(props: { product: CartItemProps }) {
           />
         </div>
         <div className="min-w-[75px]">
-          <p className="text-[15px] font-bold">{shortName}</p>
+          <p className="text-[15px] font-bold">{product.shortName}</p>
           <p className="text-[14px] font-bold text-[rgba(0,0,0,0.5)]">
-            $ {priceFormated}
+            $ {product.total}
           </p>
         </div>
       </div>
       <p className="text-[15px] font-bold text-[rgba(0,0,0,0.5)]">
-        x{product?.quantity}
+        x{product.quantity}
       </p>
-    </div>
-  );
-}
-
-function Input({ htmlFor, labelTitle, errors, touched, ...props }) {
-  return (
-    <div className="flex flex-col gap-[9px]">
-      <div className="flex justify-between">
-        <label
-          htmlFor={htmlFor}
-          className={`text-[12px] font-bold leading-[-0.21px] ${
-            errors && touched ? 'text-[#CD2C2C]' : 'text-[#000]'
-          }`}
-        >
-          {labelTitle}
-        </label>
-        {errors && touched && (
-          <p className="text-[12px] font-bold text-[#CD2C2C]">{errors}</p>
-        )}
-      </div>
-      <input
-        className={`h-[32px] w-[full] rounded-[8px] border-[1px] border-[#CFCFCF]  py-[25px] pl-[24px] text-[14px] font-bold tracking-[-0.25px]  ${
-          errors
-            ? 'focus:border-[#CD2C2C] focus:outline-none active:border-[#CD2C2C]'
-            : 'focus:border-[#D87D4A] focus:outline-none active:border-[#D87D4A]'
-        }`}
-        {...props}
-      />
     </div>
   );
 }

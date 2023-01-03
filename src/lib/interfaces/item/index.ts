@@ -1,4 +1,5 @@
 export interface ItemBoxProps {
-  quantity: number;
-  item: string;
+	id?: string | number;
+	quantity: number;
+	item: string;
 }

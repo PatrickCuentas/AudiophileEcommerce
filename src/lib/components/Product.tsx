@@ -2,27 +2,25 @@ import PrimaryButton from './PrimaryButton';
 import { ProductProps } from '../interfaces/product';
 import { Link } from 'react-router-dom';
 
-export default function Product({
-  slug = 'Slug',
-  name = 'Nombre',
-  description = 'Descripción',
-  imagePath = 'ImagePath',
-  isNew = false,
-  position = 'left',
-}: ProductProps) {
-  const flexDirectionPosition =
+export default function Product({ product }: { product: ProductProps }) {
+  const { slug, name, description, image, isNew, position } = product;
+  const flexDirection =
     position === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse';
 
   return (
     <div
-      className={`lg:flex lg:items-center lg:justify-center lg:gap-[125px] ${flexDirectionPosition}`}
+      className={`lg:flex lg:items-center lg:justify-center lg:gap-[125px] ${flexDirection}`}
     >
       <div className="mb-[32px] lg:flex-1">
-        <img
-          src={imagePath}
-          alt="No IMAGE"
-          className="min-w-full rounded-[8px]"
-        />
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={image.desktop.url} />
+          <source media="(min-width: 768px)" srcSet={image.tablet.url} />
+          <img
+            className="min-w-full rounded-[8px]"
+            src={image.mobile.url}
+            alt={product?.name + 'image'}
+          />
+        </picture>
       </div>
       <div className="flex flex-col items-center gap-[24px] lg:flex-1 lg:items-start lg:gap-0">
         {isNew && (

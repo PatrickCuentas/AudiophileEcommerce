@@ -1,7 +1,5 @@
 export interface CategoryProps {
-  id?: number;
-  name: string;
-  path: string;
-  position?: number;
-  onClick?: () => void;
+	name: string;
+	path: string;
+	onClick?: () => void;
 }

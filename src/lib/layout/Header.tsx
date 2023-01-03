@@ -1,35 +1,11 @@
 import { Link } from 'react-router-dom';
-
-import { DeviceType } from '../interfaces/device';
-
-import ImageHeaderMobile from '/assets/home/mobile/image-header.jpg';
-import ImageHeaderTablet from '/assets/home/tablet/image-header.jpg';
-import ImageHeaderDesktop from '/assets/home/desktop/image-hero.jpg';
-
-import { getDeviceType } from '../utils/windowSize';
 import PrimaryButton from '../components/PrimaryButton';
 
 export default function Header() {
-  const { type }: DeviceType = getDeviceType();
-
-  const path =
-    type === 'mobile'
-      ? ImageHeaderMobile
-      : type === 'tablet'
-      ? ImageHeaderTablet
-      : ImageHeaderDesktop;
-
-  const divImage = {
-    backgroundImage: `url("${path}")`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center bottom',
-    backgroundRepeat: 'no-repeat',
-    minWidth: '100%',
-    height: '700px',
-  };
-
   return (
-    <header style={divImage}>
+    <header
+      className={`h-[700px] bg-[url('/assets/home/mobile/image-header.jpg')] bg-cover bg-bottom bg-no-repeat md:bg-[url('/assets/home/tablet/image-header.jpg')] lg:bg-[url('/assets/home/desktop/image-hero.jpg')]`}
+    >
       <div className="h-full lg:m-auto lg:flex lg:max-w-[1100px] lg:items-center">
         <div className="flex h-full flex-col items-center justify-center text-center  lg:max-w-[380px] lg:items-start lg:text-start">
           <p className="text-[14px] tracking-[10px] text-[rgba(255,255,255,0.5)]">

@@ -7,6 +7,10 @@
     font-family: 'Manrope', sans-serif;
   }
 
+  html {
+    font-size: 16px;
+  }
+
   input[type='radio'] {
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
@@ -15,7 +19,6 @@
 }
 
 @layer components {
-
   @media screen and (min-width: 768px) {
     .grid-gallery {
       grid-template-areas:

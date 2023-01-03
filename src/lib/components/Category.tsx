@@ -20,7 +20,7 @@ const Oval = () => {
   );
 };
 
-function Category({ name, path }: CategoryProps) {
+function Category({ name, path, onClick }: CategoryProps) {
   return (
     <div className="relative h-[165px] bg-bg_primary  text-center md:flex-1">
       <div className="flex h-full flex-col items-center rounded-[8px]">
@@ -38,7 +38,7 @@ function Category({ name, path }: CategoryProps) {
           </p>
           <div>
             <Link
-              onClick={() => window.scrollTo(0, 0)}
+              onClick={onClick}
               to={`/category/${name?.toLocaleLowerCase()}`}
               className="flex flex-wrap items-center justify-center gap-1"
             >

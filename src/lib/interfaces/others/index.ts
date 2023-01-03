@@ -1,5 +1,6 @@
 export interface OthersProps {
-  slug: string;
-  name: string;
-  image: string;
+	id?: string | number;
+	slug: string;
+	name: string;
+	image: any
 }

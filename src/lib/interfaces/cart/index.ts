@@ -1,8 +1,7 @@
 export interface CartItemProps {
-  id?: number | string;
-  name?: string;
-  slug?: string;
-  price?: number;
-  image?: string;
-  quantity?: number;
+	id?: number | string;
+	shortName: string;
+	total: number;
+	image: string;
+	quantity: number;
 }
