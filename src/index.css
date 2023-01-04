@@ -25,6 +25,16 @@
         'img1 img3'
         'img2 img3';
     }
+
+    .grid-skeleton {
+      grid-template-areas: 'img1 img2 img3';
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .grid-skeleton-aboutus {
+      grid-template-areas: 'one two';
+    }
   }
 }
 

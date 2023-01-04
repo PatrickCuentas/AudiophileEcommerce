@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 import useSWR from 'swr';
 import { v4 as uuidv4 } from 'uuid';
 import fetcher from 'lib/swr/fetcher.js';
-
+import Loader from './components/Loader';
 import PrimaryButton from '../../components/PrimaryButton';
 import Categories from '../../components/Categories';
 import AboutUs from '../../components/AboutUs';
@@ -70,7 +70,9 @@ export default function ProductScreen() {
     addProduct(productCartFormat, quantity);
   };
 
-  if (isLoading) return <div />;
+  if (isLoading || product === undefined) {
+    return <Loader />;
+  }
 
   return (
     <main className="mx-auto max-w-[30rem] md:max-w-[68.75rem]">

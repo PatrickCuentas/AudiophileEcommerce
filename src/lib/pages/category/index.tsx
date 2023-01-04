@@ -2,6 +2,7 @@ import { useParams } from 'react-router';
 import useSWR from 'swr';
 import { v4 as uuidv4 } from 'uuid';
 import Main from 'lib/layout/Main';
+import Loader from './components/Loader';
 import AboutUs from 'lib/components/AboutUs';
 import Categories from 'lib/components/Categories';
 import Product from 'lib/components/Product';
@@ -17,8 +18,9 @@ export default function CategoryScreen() {
   const { data, error, isLoading } = useSWR(key, fetcher);
   const products = data?.docs;
 
-  if (isLoading || products === undefined) return <div />;
-  console.log(products);
+  if (isLoading || products === undefined) {
+    return <Loader />;
+  }
 
   return (
     <>
